@@ -1,0 +1,1475 @@
+# NØTRACE — MASTER DESIGN & MOTION SYSTEM 2.0
+
+## 01. MISIÓN PRINCIPAL
+
+Actúa como un equipo multidisciplinario de desarrollo compuesto por:
+
+- Director creativo especializado en productos digitales.
+- Diseñador senior UI/UX.
+- Ingeniero frontend senior.
+- Especialista en Design Systems.
+- Motion Graphics Designer.
+- Especialista en animaciones web.
+- Artista especializado en ASCII Art y arte generativo.
+- Especialista en rendimiento web.
+- Especialista en accesibilidad.
+- Ingeniero QA.
+
+Tu misión es realizar una transformación visual integral de la plataforma NØTRACE, una academia comercial especializada en ciberseguridad, hacking ético y formación tecnológica.
+
+No quiero una modificación superficial de colores. Quiero una reconstrucción completa del lenguaje visual, la experiencia de usuario, las animaciones, los componentes y la identidad gráfica de todo el producto.
+
+El resultado debe transmitir profesionalidad, exclusividad, precisión tecnológica, confianza, autoridad y calidad comercial.
+
+No debe parecer una plantilla gratuita, una página de hackers amateur, una terminal antigua, una interfaz de videojuego ni un proyecto experimental.
+
+Debe parecer un producto tecnológico premium diseñado por una empresa consolidada.
+
+---
+
+## 02. REGLAS FUNDAMENTALES
+
+Antes de modificar cualquier archivo:
+
+1. Analiza completamente el repositorio.
+2. Identifica el framework, las dependencias y la arquitectura.
+3. Identifica todas las páginas, rutas, componentes y estilos existentes.
+4. Identifica las animaciones, motion graphics, ilustraciones y recursos visuales actuales.
+5. Identifica componentes duplicados y estilos inconsistentes.
+6. Identifica las funcionalidades críticas.
+7. Genera un inventario completo de elementos que requieren transformación.
+8. Establece un punto de restauración mediante Git, sin sobrescribir cambios existentes.
+9. Documenta el plan de implementación.
+10. Procede con la implementación completa.
+
+No te limites a generar recomendaciones, ejemplos o fragmentos de código. Debes aplicar los cambios directamente sobre el proyecto.
+
+Preserva:
+
+- Backend.
+- Bases de datos.
+- Autenticación.
+- Usuarios.
+- Roles y permisos.
+- Integraciones.
+- Sistemas de pago.
+- Contenido educativo.
+- Lógica de negocio.
+- APIs.
+- Funcionalidades existentes.
+
+No inventes funcionalidades operativas que no existan. No alteres sistemas críticos únicamente por motivos visuales.
+
+No realices modificaciones irreversibles ni elimines recursos originales sin conservar una forma de recuperación.
+
+---
+
+## 03. DIRECCIÓN ARTÍSTICA
+
+La identidad visual estará basada en cinco conceptos:
+
+1. Monochrome Dark UI.
+2. Cyber Minimalism.
+3. Premium SaaS.
+4. Cinematic Motion Design.
+5. Procedural ASCII Art.
+
+Toma como referencia visual la sobriedad de productos tecnológicos modernos como Vercel, Linear, Raycast, shadcn/ui y plataformas premium de inteligencia artificial.
+
+La referencia principal de superficies, botones, bordes, colores y componentes será la interfaz monocromática proporcionada anteriormente.
+
+No copies literalmente la estructura de otras plataformas.
+
+Crea una identidad propia para NØTRACE.
+
+### Principio central
+
+La temática hacker debe manifestarse principalmente mediante:
+
+- Ilustraciones ASCII.
+- Motion graphics.
+- Elementos técnicos.
+- Microinteracciones.
+- Composiciones gráficas.
+- Terminales funcionales o decorativas claramente diferenciadas.
+- Visualizaciones de redes.
+- Recursos gráficos procedurales.
+- Identidad tipográfica secundaria.
+
+No debe manifestarse mediante un abuso de colores neón, textos verdes, interfaces ilegibles o efectos visuales extravagantes.
+
+La plataforma sigue siendo una academia comercial de ciberseguridad y debe transmitir confianza a potenciales estudiantes.
+
+---
+
+## 04. DESIGN TOKENS Y PALETA GLOBAL
+
+Centraliza todo el sistema visual en variables globales, design tokens o el mecanismo equivalente del framework existente.
+
+Utiliza esta paleta como fuente única de verdad:
+
+```css
+:root {
+    color-scheme: dark;
+
+    --bg-primary: #000000;
+    --bg-secondary: #0A0A0A;
+    --bg-tertiary: #121212;
+    --bg-elevated: #171717;
+    --bg-hover: #1A1A1A;
+    --bg-icon: #232323;
+
+    --border-subtle: #171717;
+    --border-default: #2E2E2E;
+    --border-hover: #404040;
+    --border-active: #737373;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #A3A3A3;
+    --text-muted: #737373;
+    --text-disabled: #525252;
+    --text-inverse: #000000;
+
+    --accent: #FFFFFF;
+    --accent-hover: #E5E5E5;
+    --accent-foreground: #000000;
+
+    --success: #4ADE80;
+    --warning: #EAB308;
+    --danger: #EF4444;
+    --info: #60A5FA;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --font-xs: 11px;
+    --font-sm: 12px;
+    --font-base: 14px;
+    --font-md: 16px;
+    --font-lg: 20px;
+    --font-xl: 24px;
+    --font-2xl: 32px;
+
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+
+    --motion-fast: 150ms;
+    --motion-normal: 200ms;
+    --motion-medium: 350ms;
+    --motion-slow: 600ms;
+
+    --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+}
+```
+
+### Restricciones cromáticas
+
+- Elimina el turquesa como color dominante.
+- Elimina el azul oscuro como fondo general.
+- Elimina el verde Matrix como identidad principal.
+- Elimina los bordes iluminados de manera permanente.
+- Elimina los degradados saturados.
+- Elimina los brillos RGB.
+- No utilices el rojo de la tercera referencia como color global.
+
+El blanco será el color de énfasis principal.
+
+Los colores semánticos solamente podrán utilizarse para comunicar información funcional: errores, advertencias, confirmaciones, estados y resultados.
+
+La profundidad visual se conseguirá mediante diferencias de luminosidad, bordes, composición y sombras sutiles.
+
+---
+
+## 05. TIPOGRAFÍA
+
+Implementa dos familias tipográficas principales.
+
+### Inter
+
+Utilizar para:
+
+- Títulos.
+- Navegación.
+- Formularios.
+- Botones.
+- Descripciones.
+- Cursos.
+- Precios.
+- Contenido académico.
+- Paneles administrativos.
+- Información comercial.
+- Textos generales.
+
+Pesos:
+
+- 400: contenido general.
+- 500: navegación y botones.
+- 600: encabezados y componentes.
+- 700: títulos principales.
+
+Utiliza títulos compactos, espaciados correctamente y con una jerarquía visual clara.
+
+### JetBrains Mono
+
+Utilizar exclusivamente para:
+
+- Terminales.
+- Fragmentos de código.
+- Ilustraciones ASCII.
+- Logs.
+- Identificadores técnicos.
+- Indicadores de progreso técnicos.
+- Visualizaciones de red.
+- Motion graphics basados en caracteres.
+
+No conviertas toda la página en una terminal.
+
+El contenido comercial y académico debe ser altamente legible.
+
+---
+
+## 06. COMPONENTES Y SUPERFICIES
+
+Rediseña absolutamente todos los componentes existentes.
+
+No debe quedar ninguna tarjeta, botón, input, menú o modal utilizando el sistema visual antiguo.
+
+### Contenedores
+
+```css
+.surface {
+    background: #0A0A0A;
+    border: 1px solid #2E2E2E;
+    border-radius: 8px;
+    padding: 16px;
+    transition:
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+.surface-interactive:hover {
+    background: #101010;
+    border-color: #404040;
+}
+
+.surface-elevated {
+    background: #121212;
+    border: 1px solid #333333;
+    border-radius: 12px;
+}
+```
+
+Los contenedores no interactivos no deben reaccionar como si fueran botones.
+
+### Botones primarios
+
+- Fondo blanco.
+- Texto negro.
+- Border radius de 8px.
+- Tipografía Inter Medium.
+- Iconografía lineal.
+- Hover gris claro.
+- Estados loading, disabled, active y focus.
+
+### Botones secundarios
+
+- Fondo negro o gris oscuro.
+- Borde de 1px.
+- Texto blanco.
+- Hover discreto.
+
+### Botones Ghost
+
+- Fondo transparente.
+- Texto gris.
+- Hover gris oscuro.
+- Sin efectos innecesarios.
+
+### Formularios
+
+- Fondo #0A0A0A.
+- Borde #2E2E2E.
+- Texto blanco.
+- Placeholder gris.
+- Radius de 8px.
+- Focus visible.
+- Validaciones accesibles.
+- Mensajes de error claros.
+- Etiquetas coherentes.
+- Autocompletado funcional.
+
+### Tablas
+
+- Encabezados discretos.
+- Separadores horizontales de 1px.
+- Filas compactas.
+- Hover sutil.
+- Buena alineación de datos.
+- Acciones claramente identificables.
+
+### Modales
+
+- Fondo #0A0A0A.
+- Borde discreto.
+- Radius de 12px a 16px.
+- Overlay negro semitransparente.
+- Animación de entrada breve.
+- Gestión correcta del foco y teclado.
+
+### Iconografía
+
+Utiliza Lucide Icons o la librería equivalente existente.
+
+- Tamaño entre 16 y 24px.
+- Grosor entre 1.5 y 2px.
+- Iconos monocromáticos.
+- Sin emojis como iconografía principal.
+- Sin mezclar librerías visualmente incompatibles.
+
+---
+
+## 07. CORRECCIÓN TOTAL DEL PERSONAJE ASCII
+
+PRIORIDAD CRÍTICA.
+
+Las ilustraciones actuales de la pantalla de carga y autenticación no cumplen el nivel visual esperado.
+
+Actualmente presentan una máscara ASCII simplificada, de baja densidad y con escasa profundidad.
+
+Elimina estas ilustraciones del diseño final y sustitúyelas por una composición original de mayor calidad.
+
+### Referencia artística principal
+
+Utiliza la tercera imagen proporcionada como referencia del nivel de detalle, composición y complejidad visual.
+
+El personaje deberá representar:
+
+- Un hacker encapuchado.
+- Capucha profunda y claramente definida.
+- Rostro parcialmente oculto por sombras.
+- Ojos discretamente iluminados.
+- Hombros y brazos proporcionados.
+- Manos frente a una computadora.
+- Laptop o terminal visible.
+- Silueta detallada.
+- Volumen generado mediante densidad de caracteres.
+- Profundidad visual.
+- Sombras complejas.
+- Iluminación monocromática.
+- Composición frontal cinematográfica.
+
+No quiero una simple máscara rectangular dibujada con unas pocas líneas.
+
+No quiero una cara con dos hexágonos como ojos.
+
+No quiero personajes que parezcan creados mediante una improvisación de veinte líneas de texto.
+
+No quiero una ilustración infantil o caricaturesca.
+
+### Construcción mediante caracteres
+
+La ilustración debe estar realmente construida o renderizada mediante caracteres de consola.
+
+Utilizar caracteres como:
+
+```text
+@ # $ % & * + = - : . ; / \ | _ 
+0 1 2 3 4 5 6 7 8 9
+[ ] ( ) { } < > ^ ~
+```
+
+Utiliza diferentes densidades para representar:
+
+- Zonas iluminadas.
+- Sombras.
+- Bordes de la capucha.
+- Pliegues de la ropa.
+- Manos.
+- Contorno de la laptop.
+- Profundidad del rostro.
+
+Los caracteres deben formar una composición artística reconocible, no una acumulación aleatoria de símbolos.
+
+### Pipeline recomendado de creación
+
+No intentes improvisar el personaje completo escribiendo ASCII manualmente si el resultado no alcanza la calidad de la referencia.
+
+Implementa un pipeline de conversión visual:
+
+1. Obtener o crear una ilustración base original del hacker encapuchado, utilizando recursos con derechos de uso adecuados.
+2. Convertirla a escala de grises.
+3. Procesar su contraste y luminosidad.
+4. Dividirla en una matriz de celdas.
+5. Asignar caracteres según la luminosidad de cada celda.
+6. Aplicar corrección de proporción para tipografías monoespaciadas.
+7. Aplicar máscaras para preservar la silueta.
+8. Construir capas de profundidad.
+9. Generar una versión ASCII de alta resolución.
+10. Implementar animaciones sobre sus caracteres.
+
+Como referencia inicial, considera resoluciones adaptativas de aproximadamente:
+
+- Escritorio: 120 a 180 columnas.
+- Tablet: 90 a 120 columnas.
+- Móvil: 55 a 90 columnas.
+
+Ajusta estos valores según el tamaño real y el rendimiento.
+
+### Tecnologías permitidas
+
+Evalúa y selecciona la solución más apropiada:
+
+- Canvas 2D.
+- Three.js y ASCII rendering.
+- WebGL.
+- Shaders personalizados.
+- SVG cuando resulte conveniente.
+- Procesamiento procedural de imágenes.
+- Renderizado mediante matrices de caracteres.
+
+Prioriza Canvas 2D si permite obtener el resultado esperado sin dependencias pesadas.
+
+No utilices miles de elementos DOM individuales para representar cada carácter.
+
+No sustituyas el ASCII animado por una simple imagen estática como solución principal.
+
+Una imagen estática optimizada podrá utilizarse únicamente como fallback.
+
+---
+
+## 08. ASCII MOTION ENGINE
+
+Desarrolla un motor reutilizable para las ilustraciones ASCII animadas.
+
+El motor debe poder utilizarse en:
+
+- Pantalla de carga.
+- Login.
+- Registro.
+- Landing page.
+- Presentaciones gráficas.
+- Secciones educativas.
+- Experiencias especiales.
+
+### Animaciones del personaje
+
+Implementa efectos visuales coordinados:
+
+1. **Character Assembly:** los caracteres aparecen progresivamente hasta formar la silueta completa.
+
+2. **Character Mutation:** algunos símbolos cambian de manera procedural, manteniendo la luminosidad y la forma general.
+
+3. **Breathing Motion:** movimiento extremadamente sutil en hombros y capucha.
+
+4. **Terminal Reflection:** variaciones discretas de iluminación provenientes de la laptop.
+
+5. **Eye Illumination:** iluminación leve de los ojos en escala de grises.
+
+6. **Scanline:** una línea de escaneo tenue atraviesa ocasionalmente la composición.
+
+7. **Digital Reconstruction:** pequeños grupos de caracteres se reconstruyen brevemente.
+
+8. **Cursor Animation:** cursor de terminal con parpadeo controlado.
+
+9. **Data Rain:** columnas de caracteres descendentes en el fondo.
+
+10. **Depth Layers:** separación visual entre personaje, laptop y partículas del entorno.
+
+11. **Idle Animation:** bucle continuo, natural y no repetitivo.
+
+12. **Pointer Response:** respuesta muy sutil al movimiento del cursor cuando el dispositivo lo permita.
+
+### Reglas de animación
+
+La silueta del personaje debe permanecer reconocible durante las animaciones.
+
+La mutación de caracteres no debe destruir el rostro, las manos o la geometría.
+
+No cambies todos los caracteres simultáneamente.
+
+No produzcas destellos constantes.
+
+No utilices efectos glitch agresivos.
+
+No simules movimientos exagerados del personaje.
+
+No conviertas el fondo en una tormenta de caracteres.
+
+La animación debe sentirse viva, elegante, precisa y cinematográfica.
+
+### Parámetros iniciales
+
+- Renderizado objetivo: hasta 60 FPS cuando sea viable.
+- Actualización de caracteres: aproximadamente 8 a 15 veces por segundo.
+- Mutación parcial: entre 2% y 8% de caracteres por actualización.
+- Movimiento ambiental lento.
+- Opacidad del fondo ASCII: entre 3% y 12%.
+- Animaciones ambientales continuas de baja intensidad.
+- Pausa automática cuando el componente no sea visible.
+
+Estos valores son puntos de partida ajustables, no requisitos rígidos que deban perjudicar el rendimiento.
+
+---
+
+## 09. REDISEÑO COMPLETO DE LA PANTALLA DE CARGA
+
+Elimina la estética actual de panel flotante con bordes turquesa, máscara pequeña y textos técnicos excesivamente decorativos.
+
+Diseña una experiencia inicial propia de una plataforma tecnológica premium.
+
+### Composición
+
+- Fondo negro puro.
+- Identidad NØTRACE.
+- Hacker ASCII de alta calidad.
+- Profundidad visual monocromática.
+- Caracteres ambientales discretos.
+- Indicador de carga minimalista.
+- Mensajes técnicos breves y legibles.
+
+El personaje debe tener protagonismo visual suficiente.
+
+No lo encierres innecesariamente dentro de varios contenedores con bordes.
+
+Permite que la ilustración se integre orgánicamente con el fondo.
+
+### Secuencia visual
+
+**Etapa 1 — Inicialización**
+
+La pantalla aparece en negro. Se revela discretamente la identidad de NØTRACE mediante una transición de opacidad.
+
+**Etapa 2 — Formación del personaje**
+
+Los símbolos comienzan a aparecer y se ensamblan hasta formar el hacker encapuchado.
+
+**Etapa 3 — Actividad**
+
+La laptop, los ojos y algunas zonas del personaje presentan variaciones controladas de luminosidad.
+
+Aparecen caracteres ambientales de manera sutil.
+
+**Etapa 4 — Preparación**
+
+El indicador de carga avanza según el estado real de inicialización cuando este sea medible.
+
+**Etapa 5 — Transición**
+
+La pantalla realiza una transición cinematográfica breve hacia la página correspondiente.
+
+### Condiciones obligatorias
+
+- No inventar porcentajes de carga.
+- Si el progreso real no puede calcularse, utilizar un indicador indeterminado.
+- No introducir esperas artificiales únicamente para mostrar una animación.
+- No bloquear la aplicación por motivos decorativos.
+- No reproducir una introducción larga en cada cambio de página.
+- No utilizar logs que afirmen falsamente que se están realizando análisis o conexiones reales.
+- Permitir una transición inmediata si la aplicación ya está preparada.
+- Utilizar versiones ligeras en dispositivos de baja potencia.
+
+La pantalla de carga debe ser memorable, pero nunca convertirse en una molestia.
+
+---
+
+## 10. REDISEÑO COMPLETO DEL LOGIN Y REGISTRO
+
+Reconstruye visualmente la experiencia de autenticación.
+
+La interfaz actual presenta una ilustración poco detallada y controles que no transmiten suficiente calidad comercial.
+
+### Dirección visual
+
+Combinar:
+
+- Área de identidad visual.
+- Hacker ASCII animado.
+- Formulario de autenticación minimalista.
+- Tipografía Inter.
+- Fondo negro puro.
+- Bordes discretos.
+- Botones blancos.
+- Distribución equilibrada.
+
+En escritorio, considera una composición dividida entre la experiencia gráfica y el formulario si resulta adecuada para la arquitectura existente.
+
+En móvil, prioriza el formulario y utiliza una versión compacta de la ilustración.
+
+### Experiencia del personaje
+
+El hacker permanecerá animado de forma ambiental durante la interacción.
+
+Cuando el usuario interactúe con los campos, podrán producirse respuestas visuales pequeñas y elegantes, como cambios leves de iluminación o actividad de la terminal.
+
+No utilizar, almacenar ni representar los datos introducidos por el usuario dentro de las animaciones.
+
+Nunca mostrar contraseñas en terminales, logs o motion graphics.
+
+### Formulario
+
+Implementar según las funcionalidades existentes:
+
+- Correo electrónico.
+- Contraseña.
+- Mostrar u ocultar contraseña.
+- Recuperación de contraseña.
+- Acceso.
+- Registro.
+- Validación.
+- Mensajes de error.
+- Estados loading.
+- Autenticación externa, si existe.
+
+Elimina selectores decorativos como «Máscara», «Terminal» y «Ojo» si no aportan una funcionalidad real.
+
+Mantén una identidad gráfica consistente en todos los estados de autenticación.
+
+### Animaciones de autenticación
+
+- Entrada suave del formulario.
+- Aparición escalonada de campos.
+- Hover de botones.
+- Feedback de validación.
+- Indicador de procesamiento.
+- Transición de acceso exitoso.
+- Notificaciones discretas.
+
+No sacrificar rapidez ni accesibilidad por efectos visuales.
+
+---
+
+## 11. LANDING PAGE Y EXPERIENCIA COMERCIAL
+
+Transforma la página principal para que comunique que NØTRACE es una academia profesional de ciberseguridad.
+
+Debe ser atractiva para principiantes y usuarios avanzados.
+
+La estética hacker debe reforzar el mensaje educativo, no dificultar su comprensión.
+
+### Hero principal
+
+Diseña una composición visual impactante utilizando:
+
+- Tipografía de alto contraste.
+- Mensaje comercial claro.
+- Llamadas a la acción.
+- Ilustración ASCII cinematográfica.
+- Fondo monocromático.
+- Animaciones ambientales.
+
+El personaje ASCII podrá integrarse en esta sección mediante una variante visual del motor principal.
+
+Evita repetir exactamente la misma composición en todas las páginas.
+
+### Secciones comerciales
+
+Aplica el nuevo sistema visual a las secciones existentes relacionadas con:
+
+- Presentación de cursos.
+- Beneficios de la academia.
+- Rutas de aprendizaje.
+- Metodología.
+- Profesores.
+- Certificaciones, cuando existan.
+- Precios.
+- Planes.
+- Preguntas frecuentes.
+- Opiniones verificadas, si están disponibles.
+- Llamadas a la acción.
+- Pie de página.
+
+No inventar estadísticas, testimonios, certificaciones ni resultados comerciales.
+
+---
+
+## 12. IDENTIDAD VISUAL DE LOS CURSOS
+
+Diseña un sistema gráfico propio para las tarjetas y portadas de cursos.
+
+No utilizar imágenes genéricas de personas encapuchadas en todos los cursos.
+
+Crea composiciones técnicas específicas para cada temática.
+
+Ejemplos conceptuales:
+
+- Hacking ético: silueta ASCII y terminal.
+- Redes: topologías y conexiones entre nodos.
+- Linux: comandos y estructuras de archivos.
+- Seguridad web: estructuras de peticiones HTTP.
+- Criptografía: matrices y transformaciones matemáticas.
+- Análisis de malware: visualizaciones de código y entropía.
+- Seguridad defensiva: capas de protección y escudos abstractos.
+- Informática forense: estructuras de datos y análisis digital.
+- OSINT: grafos de relaciones e información.
+- Cloud Security: infraestructura y nodos distribuidos.
+
+Todas deben compartir:
+
+- Paleta monocromática.
+- Contraste consistente.
+- Geometría.
+- Tipografía secundaria técnica.
+- Nivel de detalle uniforme.
+- Identidad NØTRACE.
+
+Utiliza motion graphics en las portadas únicamente cuando sean beneficiosos.
+
+No mantengas todas las tarjetas animadas permanentemente.
+
+Prioriza animaciones bajo interacción, hover o visibilidad.
+
+---
+
+## 13. CAMPUS VIRTUAL Y PANEL DEL ESTUDIANTE
+
+Aplica el mismo sistema de diseño a toda la experiencia posterior al acceso.
+
+Incluye, si existen:
+
+- Dashboard.
+- Cursos inscritos.
+- Progreso académico.
+- Rutas de aprendizaje.
+- Lecciones.
+- Reproductor de video.
+- Recursos descargables.
+- Laboratorios.
+- Ejercicios.
+- Evaluaciones.
+- Certificados.
+- Historial.
+- Notificaciones.
+- Perfil.
+- Configuración.
+- Suscripciones.
+- Facturación.
+
+### Experiencia académica
+
+El contenido educativo debe tener prioridad absoluta sobre la decoración.
+
+Las ilustraciones y animaciones deben reducirse dentro de las lecciones para evitar distracciones.
+
+Los bloques de código deben tener una estética coherente, buena legibilidad, opción de copiar y resaltado sintáctico accesible.
+
+Los laboratorios y terminales podrán utilizar una identidad técnica más expresiva, siempre que no perjudique su funcionalidad.
+
+### Progreso
+
+Utiliza:
+
+- Barras monocromáticas.
+- Indicadores circulares discretos.
+- Estados completados.
+- Transiciones suaves.
+- Retroalimentación visual moderada.
+
+No utilizar animaciones exageradas para recompensar acciones rutinarias.
+
+---
+
+## 14. MOTION DESIGN SYSTEM GLOBAL
+
+No implementar animaciones de manera aislada e inconsistente.
+
+Crea un sistema global de movimiento con reglas, duraciones, curvas y variantes reutilizables.
+
+### Microinteracciones
+
+| Interacción | Duración recomendada |
+|---|---|
+| Hover de botón | 150ms |
+| Presionar botón | 100–150ms |
+| Cambio de borde | 180ms |
+| Focus de input | 150ms |
+| Tooltip | 120–180ms |
+| Menú desplegable | 180–220ms |
+| Checkbox | 150ms |
+| Switch | 200ms |
+| Modal | 200–300ms |
+| Drawer | 250–350ms |
+| Cambio de página | 200–350ms |
+| Entrada de sección | 350–600ms |
+| Introducción gráfica | Adaptada a la carga real |
+
+### Tipos de animación
+
+Implementa variantes reutilizables:
+
+- Fade in.
+- Fade out.
+- Fade up.
+- Slide.
+- Scale in.
+- Stagger.
+- Reveal.
+- Mask reveal.
+- Character reveal.
+- Count up.
+- Skeleton loading.
+- Accordion expand.
+- Terminal typing.
+- ASCII reconstruction.
+- Scanline.
+- Ambient motion.
+
+### Reglas
+
+Prioriza animaciones sobre transform y opacity.
+
+Evita animar propiedades que provoquen recálculos constantes de layout.
+
+Las animaciones deben comunicar jerarquía, cambio de estado o continuidad espacial.
+
+No animar elementos únicamente porque es técnicamente posible.
+
+No utilizar rebotes excesivos.
+
+No aplicar parallax exagerado.
+
+No introducir retrasos en acciones críticas.
+
+---
+
+## 15. MOTION GRAPHICS AMBIENTALES
+
+Crea una biblioteca de recursos visuales reutilizables.
+
+### ASCII Background
+
+Fondo formado por símbolos de baja opacidad, movimiento lento y distribución controlada.
+
+### Network Graph
+
+Visualización de nodos y conexiones mediante líneas delgadas y puntos monocromáticos.
+
+### Terminal Grid
+
+Cuadrícula técnica tenue con profundidad visual.
+
+### Data Stream
+
+Flujos verticales u horizontales de caracteres que sugieren movimiento de información.
+
+### Signal Pulse
+
+Pulsos discretos que recorren conexiones gráficas.
+
+### Digital Noise
+
+Ruido procedural extremadamente sutil, sin comprometer la legibilidad.
+
+### Character Wave
+
+Ondas de luminosidad que recorren una matriz de caracteres.
+
+### Scanline Overlay
+
+Línea de escaneo utilizada ocasionalmente en ilustraciones técnicas.
+
+### Circuit Pattern
+
+Patrones geométricos inspirados en circuitos electrónicos.
+
+### Procedural Particles
+
+Partículas monocromáticas de baja densidad.
+
+Todos estos efectos deben ser modulares, configurables y reutilizables.
+
+No aplicar todos los efectos simultáneamente.
+
+Cada sección debe utilizar únicamente los recursos que aporten valor a su composición.
+
+Los gráficos decorativos no deben presentarse como datos reales de seguridad.
+
+---
+
+## 16. NAVEGACIÓN Y ELEMENTOS GLOBALES
+
+Rediseña todos los elementos globales existentes:
+
+- Navbar.
+- Sidebar.
+- Breadcrumbs.
+- Menú móvil.
+- Footer.
+- Dropdowns.
+- Menús contextuales.
+- Buscador.
+- Centro de notificaciones.
+- Selector de usuario.
+- Navegación por pestañas.
+- Paginación.
+- Filtros.
+- Tooltips.
+- Barras de progreso.
+- Skeletons.
+- Alertas.
+- Estados vacíos.
+- Estados de error.
+- Página 404.
+- Página 500.
+- Pantallas de mantenimiento.
+
+Utilizar superficies monocromáticas, bordes delgados, iconos lineales y una jerarquía consistente.
+
+Los elementos seleccionados pueden utilizar fondos #171717 y texto blanco.
+
+Los elementos inactivos deben utilizar grises secundarios.
+
+No permitir que páginas secundarias conserven la identidad visual antigua.
+
+---
+
+## 17. PANEL DE ADMINISTRACIÓN
+
+Si existe un panel administrativo, también debe transformarse completamente.
+
+Aplicar el sistema visual a:
+
+- Gestión de usuarios.
+- Gestión de estudiantes.
+- Gestión de cursos.
+- Gestión de lecciones.
+- Gestión de pagos.
+- Gestión de contenido.
+- Analíticas.
+- Estadísticas.
+- Configuración.
+- Roles y permisos.
+- Tablas.
+- Formularios.
+- Modales.
+- Reportes.
+
+El panel administrativo debe ser más funcional y menos decorativo que la landing page.
+
+Evitar animaciones ambientales durante tareas administrativas.
+
+Los gráficos deben utilizar principalmente escala de grises, reservando colores para datos que necesiten distinguirse semánticamente.
+
+---
+
+## 18. ARQUITECTURA DE COMPONENTES
+
+Adapta la estructura al framework existente.
+
+Como referencia conceptual:
+
+```text
+src/
+├── design-system/
+│   ├── tokens/
+│   ├── typography/
+│   ├── themes/
+│   ├── animations/
+│   └── utilities/
+│
+├── components/
+│   ├── ui/
+│   ├── navigation/
+│   ├── feedback/
+│   ├── forms/
+│   └── layouts/
+│
+├── motion/
+│   ├── MotionProvider
+│   ├── motionVariants
+│   ├── useReducedMotion
+│   ├── useVisibility
+│   └── usePerformanceTier
+│
+├── visual-engine/
+│   ├── ASCIIEngine
+│   ├── ASCIICharacter
+│   ├── ASCIIRenderer
+│   ├── ASCIIBackground
+│   ├── CharacterMutation
+│   ├── NetworkGraph
+│   ├── DataStream
+│   ├── Scanline
+│   └── VisualFallback
+│
+└── assets/
+    ├── fonts/
+    ├── ascii/
+    ├── illustrations/
+    └── textures/
+```
+
+Esta estructura es orientativa. No fuerces una reorganización innecesaria del repositorio.
+
+### Selección tecnológica
+
+Evalúa:
+
+- CSS nativo para microinteracciones.
+- Motion para transiciones de componentes cuando sea compatible.
+- GSAP para secuencias complejas cuando esté justificado.
+- Canvas 2D para el motor ASCII.
+- Three.js o WebGL únicamente cuando aporten un beneficio visual medible.
+- SVG para gráficos vectoriales ligeros.
+- Web Workers y OffscreenCanvas cuando exista una ventaja comprobable y compatibilidad adecuada.
+
+No instales todas las librerías indiscriminadamente.
+
+Revisa las dependencias existentes antes de añadir nuevas.
+
+Evita utilizar múltiples motores de animación para resolver la misma tarea.
+
+---
+
+## 19. RENDIMIENTO Y OPTIMIZACIÓN
+
+El resultado debe ser visualmente avanzado sin convertir la página en una aplicación pesada.
+
+Implementa:
+
+- Lazy loading.
+- Code splitting cuando corresponda.
+- Carga diferida de recursos visuales.
+- Optimización de fuentes.
+- Optimización de imágenes.
+- Renderizado adaptativo.
+- Pausa de animaciones fuera del viewport.
+- Pausa cuando la pestaña esté oculta.
+- Limpieza de event listeners.
+- Cancelación de animation frames.
+- Liberación de recursos WebGL, si se utilizan.
+- Caché apropiada.
+- Control de consumo de memoria.
+
+### Niveles de calidad
+
+**Ultra:** ilustraciones ASCII de alta densidad y efectos completos en dispositivos capaces.
+
+**High:** buena calidad visual con reducción de partículas.
+
+**Medium:** menor densidad de caracteres y frecuencia de actualización.
+
+**Low:** animaciones mínimas y menor resolución.
+
+**Static:** imagen o composición estática accesible.
+
+Determinar el nivel de calidad mediante capacidades disponibles y rendimiento observado, sin depender exclusivamente del tipo de dispositivo.
+
+### Objetivos
+
+- LCP igual o inferior a 2.5 segundos cuando sea razonablemente alcanzable.
+- CLS igual o inferior a 0.1.
+- INP igual o inferior a 200ms.
+- Animaciones fluidas.
+- Ausencia de bloqueos durante interacciones.
+- Sin fugas de memoria.
+- Sin consumo innecesario de CPU o GPU.
+
+Medir los resultados reales. No afirmar que se alcanzaron objetivos sin pruebas.
+
+---
+
+## 20. RESPONSIVE DESIGN
+
+La transformación debe abarcar:
+
+- Móviles pequeños.
+- Móviles grandes.
+- Tablets.
+- Laptops.
+- Monitores de escritorio.
+- Pantallas ultrawide.
+
+Verificar especialmente resoluciones de:
+
+- 320px.
+- 375px.
+- 390px.
+- 430px.
+- 768px.
+- 1024px.
+- 1280px.
+- 1440px.
+- 1920px.
+- 2560px.
+
+El personaje ASCII debe adaptarse sin deformarse.
+
+No permitir:
+
+- Texto cortado.
+- Scroll horizontal accidental.
+- Tarjetas superpuestas.
+- Formularios inaccesibles.
+- Elementos fuera del viewport.
+- Animaciones que desplacen contenido.
+- Fondos que dificulten la interacción.
+
+En móvil, reducir los motion graphics cuando sea necesario y priorizar el acceso rápido al contenido.
+
+---
+
+## 21. ACCESIBILIDAD
+
+Aplicar criterios WCAG 2.2 AA como objetivo.
+
+Incluir:
+
+- Contraste suficiente.
+- Navegación por teclado.
+- Estados focus visibles.
+- Labels accesibles.
+- Gestión del foco.
+- Soporte para lectores de pantalla.
+- Roles ARIA cuando corresponda.
+- Respeto de prefers-reduced-motion.
+- Alternativas estáticas a las animaciones.
+- Controles para reducir efectos cuando sea necesario.
+- Ausencia de destellos rápidos.
+- Objetivos táctiles adecuados.
+
+Las ilustraciones ASCII decorativas no deben hacer que un lector de pantalla lea miles de caracteres sin sentido.
+
+Marcar estas composiciones como decorativas o proporcionar una descripción accesible apropiada.
+
+No utilizar únicamente colores para comunicar estados.
+
+---
+
+## 22. ESTADOS Y EXPERIENCIAS DE FEEDBACK
+
+Diseña y unifica todos los estados visuales de la aplicación:
+
+- Loading.
+- Empty.
+- Success.
+- Warning.
+- Error.
+- Disabled.
+- Focus.
+- Hover.
+- Active.
+- Selected.
+- Offline.
+- Skeleton.
+- Processing.
+
+Cada estado debe tener una identidad consistente.
+
+Los estados de carga pueden incluir elementos técnicos, pero deben comunicar claramente qué está ocurriendo.
+
+No simular actividades de hacking, escaneos o conexiones que la aplicación realmente no está ejecutando.
+
+---
+
+## 23. RESTRICCIONES ABSOLUTAS
+
+Queda prohibido entregar:
+
+- Máscaras ASCII simplificadas como personaje principal.
+- Estética Matrix verde como identidad general.
+- Bordes neón permanentes.
+- Fondos azules o turquesas dominantes.
+- Brillos exagerados.
+- Animaciones glitch agresivas.
+- Textos ilegibles.
+- Tipografía monospace en toda la plataforma.
+- Ilustraciones pixeladas accidentalmente.
+- Personajes desproporcionados.
+- Componentes con estilos incompatibles.
+- Animaciones que bloqueen acciones.
+- Pantallas de carga artificialmente largas.
+- Dependencias innecesarias.
+- Funcionalidades simuladas presentadas como reales.
+- Componentes antiguos olvidados.
+- Cambios superficiales que solo sustituyan colores.
+- Modificaciones visuales que rompan funcionalidades.
+
+---
+
+## 24. PLAN DE EJECUCIÓN
+
+### Fase 1 — Auditoría
+
+Analizar el proyecto completo y documentar todas las rutas, componentes, estilos y recursos existentes.
+
+### Fase 2 — Fundamentos visuales
+
+Implementar design tokens, paleta, tipografía, iconografía, geometría y espaciado global.
+
+### Fase 3 — Componentes
+
+Reconstruir y unificar todos los componentes reutilizables.
+
+### Fase 4 — Motor ASCII
+
+Desarrollar el personaje de alta calidad, el pipeline gráfico y el sistema de animaciones procedurales.
+
+No continuar con la integración definitiva de una ilustración que no cumpla el nivel artístico esperado.
+
+### Fase 5 — Pantalla de carga
+
+Reemplazar completamente la experiencia actual.
+
+### Fase 6 — Autenticación
+
+Rediseñar login, registro y todas las experiencias relacionadas.
+
+### Fase 7 — Experiencia comercial
+
+Transformar landing page, catálogo, cursos, precios y demás páginas comerciales existentes.
+
+### Fase 8 — Campus virtual
+
+Transformar las páginas educativas y el panel del estudiante.
+
+### Fase 9 — Administración
+
+Transformar el panel administrativo y sus componentes.
+
+### Fase 10 — Motion graphics
+
+Integrar el sistema global de movimiento y recursos ambientales.
+
+### Fase 11 — Optimización
+
+Optimizar rendimiento, accesibilidad y comportamiento responsive.
+
+### Fase 12 — Auditoría final
+
+Verificar todas las páginas, corregir inconsistencias y ejecutar las pruebas necesarias.
+
+No detenerse al finalizar la landing page o el login.
+
+La tarea termina cuando toda la aplicación haya sido revisada y adaptada.
+
+---
+
+## 25. TRABAJO MULTIAGENTE
+
+Si el entorno permite subagentes, skills o ejecución paralela, distribuye el trabajo de manera coordinada.
+
+### Agente 1 — Design System
+
+Responsable de tokens, componentes, colores, tipografía y geometría.
+
+### Agente 2 — ASCII Visual Engine
+
+Responsable del personaje, arte generativo, conversión de imágenes y renderizado procedural.
+
+### Agente 3 — Motion Graphics
+
+Responsable de transiciones, secuencias, microinteracciones y animaciones ambientales.
+
+### Agente 4 — Frontend UI
+
+Responsable de aplicar el sistema visual a todas las páginas y componentes.
+
+### Agente 5 — Responsive y accesibilidad
+
+Responsable de adaptabilidad, navegación por teclado y accesibilidad.
+
+### Agente 6 — QA y rendimiento
+
+Responsable de pruebas funcionales, regresiones visuales, consumo de recursos y optimización.
+
+Utiliza un coordinador principal para evitar conflictos, duplicaciones y modificaciones simultáneas incompatibles.
+
+Si el entorno no permite subagentes, ejecuta estos roles de manera secuencial.
+
+---
+
+## 26. DOCUMENTACIÓN OBLIGATORIA
+
+Crea y mantén los siguientes archivos, adaptando sus ubicaciones al repositorio:
+
+### DESIGN_SYSTEM.md
+
+Documentar:
+
+- Paleta.
+- Tipografía.
+- Design tokens.
+- Componentes.
+- Reglas visuales.
+- Iconografía.
+- Accesibilidad.
+- Ejemplos de uso.
+
+### MOTION_SYSTEM.md
+
+Documentar:
+
+- Duraciones.
+- Curvas.
+- Variantes.
+- Transiciones.
+- Motion graphics.
+- Reglas de rendimiento.
+- Niveles de calidad.
+
+### ASCII_ENGINE.md
+
+Documentar:
+
+- Arquitectura.
+- Pipeline de generación.
+- Fuentes y recursos utilizados.
+- Matriz de caracteres.
+- Animaciones.
+- Configuraciones.
+- Fallbacks.
+- Uso en nuevos componentes.
+
+### REDESIGN_PROGRESS.md
+
+Registrar continuamente:
+
+- Fecha.
+- Fase.
+- Página.
+- Archivos modificados.
+- Cambios realizados.
+- Pruebas.
+- Resultados.
+- Errores.
+- Correcciones.
+- Tareas pendientes.
+
+### PROJECT_CONTEXT.md
+
+Mantener el contexto necesario para que otro agente pueda continuar el trabajo sin repetir la auditoría ni perder decisiones importantes.
+
+### QA_REPORT.md
+
+Registrar pruebas visuales, funcionales, responsive, de accesibilidad y rendimiento.
+
+No reportar pruebas que no hayan sido ejecutadas.
+
+---
+
+## 27. AUDITORÍA VISUAL FINAL
+
+Utiliza las herramientas de navegador y pruebas disponibles, preferiblemente automatizadas, para inspeccionar visualmente la aplicación real.
+
+Captura imágenes de:
+
+- Pantalla de carga.
+- Login.
+- Registro.
+- Landing page.
+- Catálogo.
+- Detalles de cursos.
+- Campus virtual.
+- Panel administrativo.
+- Modales.
+- Menús.
+- Estados vacíos.
+- Pantallas de error.
+- Versiones móviles.
+
+Compara los resultados con las referencias proporcionadas.
+
+Revisa cada ruta y verifica:
+
+- Colores.
+- Bordes.
+- Tipografía.
+- Contraste.
+- Espaciado.
+- Animaciones.
+- Iconografía.
+- Consistencia.
+- Calidad del ASCII.
+- Comportamiento responsive.
+- Funcionalidades existentes.
+
+Inspecciona capturas reales, no únicamente el código fuente.
+
+Graba o inspecciona secuencias de animación cuando las herramientas disponibles lo permitan.
+
+Corrige iterativamente cualquier resultado que no cumpla los criterios.
+
+---
+
+## 28. CRITERIOS DE ACEPTACIÓN
+
+El rediseño solamente se considerará completo cuando:
+
+- Todas las páginas utilicen el nuevo sistema visual.
+- No queden componentes con el antiguo estilo turquesa.
+- La pantalla de carga haya sido reconstruida.
+- El login y registro hayan sido transformados.
+- El personaje ASCII sea detallado, reconocible y proporcional.
+- El personaje tenga animaciones procedurales reales.
+- Los motion graphics compartan una identidad coherente.
+- La paleta monocromática se aplique globalmente.
+- La interfaz comercial transmita profesionalidad.
+- Las funcionalidades existentes permanezcan operativas.
+- Los componentes sean reutilizables.
+- Las animaciones estén optimizadas.
+- La aplicación sea responsive.
+- Se respeten las preferencias de movimiento reducido.
+- No existan errores nuevos en consola.
+- Se hayan ejecutado las pruebas disponibles.
+- La documentación esté actualizada.
+
+Si una condición no puede verificarse, documentar el motivo y mantenerla como pendiente, no marcarla como completada.
+
+---
+
+## 29. IDENTIDAD FINAL DEL PRODUCTO
+
+NØTRACE debe percibirse como una combinación de academia premium, plataforma tecnológica moderna y experiencia cinematográfica de ciberseguridad.
+
+El visitante debe sentir que está entrando a un ecosistema tecnológico especializado, no a una página temática creada para aparentar que es de hackers.
+
+El personaje encapuchado debe convertirse en un recurso visual distintivo de la marca.
+
+El diseño debe funcionar incluso si se eliminan las animaciones, demostrando que la calidad proviene también de su sistema de diseño.
+
+El movimiento debe elevar la experiencia, no sostenerla artificialmente.
+
+---
+
+## 30. INSTRUCCIÓN FINAL DE EJECUCIÓN
+
+Comienza analizando el repositorio y las imágenes de referencia.
+
+Establece el punto de restauración, genera el inventario visual y ejecuta las fases de implementación.
+
+No entregues únicamente un plan.
+
+No te limites a cambiar los colores.
+
+No generes otra máscara ASCII de baja complejidad.
+
+No consideres terminada la tarea después de modificar dos o tres pantallas.
+
+Utiliza herramientas de desarrollo, navegador, pruebas, skills y agentes disponibles cuando aporten valor.
+
+Continúa hasta completar la transformación integral del producto dentro de las capacidades reales del entorno.
+
+Al finalizar, entrega un informe con los cambios realizados, componentes creados, archivos modificados, pruebas ejecutadas, resultados, limitaciones y tareas pendientes.
+
+El estándar de calidad esperado es el de un producto tecnológico premium, comercializable, memorable, optimizado y preparado para crecer.
+
+**NØTRACE — Master Visual & Motion System 2.0.**

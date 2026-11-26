@@ -1,0 +1,1796 @@
+# NØTRACE 3.0 — MASTER PLATFORM, ECONOMY & EXPERIENCE SYSTEM
+
+## 01. OBJETIVO GENERAL DEL PROYECTO
+
+Actúa como un equipo de desarrollo especializado en arquitectura de software, diseño UI/UX, desarrollo frontend, experiencia comercial, sistemas de economía virtual, gamificación, motion graphics y plataformas educativas de ciberseguridad.
+
+Tu misión consiste en transformar NØTRACE en un ecosistema digital completo de formación, herramientas de ciberseguridad, aprendizaje práctico, recompensas y economía virtual.
+
+NØTRACE dejará de percibirse únicamente como una página de venta de cursos. Debe convertirse en una plataforma tecnológica con identidad propia, donde los usuarios puedan aprender, utilizar herramientas, adquirir conocimientos, completar actividades, obtener recompensas y administrar su economía dentro del ecosistema.
+
+Toda la transformación deberá conservar el sistema visual desarrollado anteriormente:
+
+- Monochrome Dark UI.
+- Obsidian UI.
+- Cyber Minimalism.
+- Premium SaaS.
+- ASCII Motion Graphics.
+- Cinematic Interface.
+- Negro puro como fondo principal.
+- Blanco como color principal de interacción.
+- Escala de grises para superficies, bordes y elementos secundarios.
+
+No reemplazar la identidad visual existente por una nueva estética. Debes evolucionarla, perfeccionarla y aplicarla consistentemente.
+
+---
+
+# 02. REESTRUCTURACIÓN COMPLETA DE LA PLATAFORMA
+
+Actualmente, la página principal contiene demasiadas funcionalidades y elementos que deberían tener sus propios espacios independientes.
+
+Se deberá reorganizar la arquitectura de navegación.
+
+La nueva estructura conceptual será:
+
+```text
+NØTRACE
+│
+├── Inicio
+│
+├── Métodos
+│   ├── Explorar métodos
+│   ├── Categorías
+│   ├── Métodos gratuitos
+│   ├── Métodos premium
+│   └── Detalles de cada método
+│
+├── Herramientas
+│   ├── VPN Inspector
+│   ├── Privacy Lab
+│   ├── Network Lab
+│   ├── Crypto Lab
+│   └── Herramientas futuras
+│
+├── Campus
+│   ├── Mis métodos
+│   ├── Progreso
+│   ├── Laboratorios
+│   ├── Actividades
+│   └── Certificados
+│
+├── Billetera
+│   ├── Balance NØBYTE
+│   ├── Balance NØCORE
+│   ├── Recargas
+│   ├── Recompensas
+│   └── Historial
+│
+├── Misiones y eventos
+│
+├── Sobre NØTRACE
+│
+├── Centro de ayuda
+│
+├── Autenticación
+│   ├── Iniciar sesión
+│   ├── Crear cuenta
+│   └── Recuperar contraseña
+│
+├── Perfil
+│
+└── Administración
+```
+
+Cada apartado principal debe contar con una ruta independiente.
+
+Rutas recomendadas:
+
+```text
+/
+/metodos
+/metodos/:slug
+/herramientas
+/herramientas/vpn-inspector
+/herramientas/privacy-lab
+/herramientas/network-lab
+/herramientas/crypto-lab
+/campus
+/campus/progreso
+/billetera
+/billetera/recargar
+/billetera/historial
+/recompensas
+/misiones
+/eventos
+/nosotros
+/ayuda
+/login
+/registro
+/perfil
+/admin
+```
+
+Adaptar estas rutas al framework y arquitectura existentes.
+
+No duplicar funcionalidades, no romper rutas existentes y no eliminar información de usuarios.
+
+---
+
+# 03. NUEVA TERMINOLOGÍA DE NØTRACE
+
+A partir de este momento, los cursos dejarán de denominarse cursos dentro de la interfaz comercial.
+
+La nueva denominación oficial será:
+
+**MÉTODOS**
+
+El concepto de un Método representa una experiencia estructurada de aprendizaje, investigación, práctica y desarrollo de habilidades de ciberseguridad.
+
+Un Método podrá contener:
+
+- Módulos.
+- Lecciones.
+- Videos.
+- Documentación.
+- Laboratorios.
+- Ejercicios.
+- Evaluaciones.
+- Actividades.
+- Recursos.
+- Proyectos.
+- Recompensas.
+
+La terminología deberá actualizarse en:
+
+- Navegación.
+- Tarjetas.
+- Landing page.
+- Catálogo.
+- Campus.
+- Paneles.
+- Buscadores.
+- Filtros.
+- Notificaciones.
+- Administración.
+- Botones.
+- Mensajes de interfaz.
+
+No realizar sustituciones masivas que rompan modelos de datos, APIs o estructuras internas. Si técnicamente los cursos se identifican como `courses`, pueden conservar ese nombre internamente mientras se presentan como Métodos al usuario.
+
+En documentos legales o descripciones educativas podrá mantenerse la palabra curso cuando sea necesaria para explicar claramente el producto.
+
+---
+
+# 04. REDISEÑO DEL HOME
+
+La página presentada en la captura más reciente será la base del nuevo Home oficial de NØTRACE.
+
+Conservar:
+
+- El personaje encapuchado construido mediante caracteres.
+- El motor ASCII.
+- El fondo negro puro.
+- La composición visual del Hero.
+- La tipografía blanca de gran tamaño.
+- La estética minimalista.
+- La identidad NØTRACE.
+
+Eliminar del Home las herramientas completas, mapas, formularios técnicos, paneles de diagnóstico y catálogos extensos.
+
+La página principal será una experiencia de presentación, descubrimiento y conversión comercial.
+
+La nueva estructura será:
+
+```text
+NAVBAR GLOBAL
+
+HERO PRINCIPAL
+    Mensaje de marca
+    Personaje ASCII animado
+    Explorar métodos
+    Explorar herramientas
+
+MÉTODOS DESTACADOS
+    Carrusel horizontal
+
+ECOSISTEMA DE HERRAMIENTAS
+    Accesos visuales
+
+ECONOMÍA NØTRACE
+    Presentación de monedas y recompensas
+
+MISIONES Y ACTIVIDADES
+    Presentación del sistema de progresión
+
+SOBRE NØTRACE
+    Información de la plataforma
+
+LLAMADA A LA ACCIÓN
+    Crear cuenta / Explorar métodos
+
+FOOTER
+```
+
+Mantener una distribución espaciosa, profesional y comercializable.
+
+No convertir el Home en un dashboard.
+
+---
+
+# 05. NAVBAR GLOBAL
+
+Reconstruir completamente la barra de navegación.
+
+La estructura recomendada será:
+
+```text
+[NØTRACE]
+
+Inicio
+Métodos
+Herramientas
+Campus
+Nosotros
+
+[Billetera] [Iniciar sesión] [Crear cuenta]
+```
+
+En usuarios autenticados:
+
+```text
+[NØTRACE]
+
+Inicio
+Métodos
+Herramientas
+Campus
+Nosotros
+
+[NØBYTE] [NØCORE] [Notificaciones] [Perfil]
+```
+
+El acceso a la billetera deberá encontrarse siempre disponible en la parte superior derecha.
+
+Cuando el espacio lo permita, mostrar los balances de ambas monedas mediante sus iconos personalizados.
+
+Los usuarios no autenticados podrán consultar una presentación pública de la billetera, pero deberán iniciar sesión para acceder a operaciones personales.
+
+Eliminar botones de demostración como:
+
+- Ver carga.
+- Controles de velocidad del personaje.
+- Controles de densidad ASCII.
+- Activación manual del fondo.
+- Controles de reproducción utilizados durante el desarrollo.
+
+Estos controles podrán conservarse exclusivamente en un panel de desarrollo o configuración de accesibilidad, cuando corresponda.
+
+La navegación debe adaptarse correctamente a dispositivos móviles.
+
+Utilizar iconos Lucide con texto cuando sea necesario, evitando saturar visualmente la barra superior.
+
+---
+
+# 06. HERO PRINCIPAL
+
+Conservar el concepto actual:
+
+**El conocimiento es poder.**
+
+Como alternativa de texto secundario:
+
+«Comprende los sistemas. Domina la ciberseguridad. Desarrolla habilidades reales mediante métodos especializados, laboratorios prácticos y herramientas profesionales.»
+
+Botón principal:
+
+**Explorar métodos**
+
+Botón secundario:
+
+**Explorar herramientas**
+
+Botón complementario opcional:
+
+**Descubre NØTRACE**
+
+El personaje ASCII deberá permanecer en la parte visual del Hero.
+
+Mejorar su animación con:
+
+- Mutación procedural de caracteres.
+- Movimiento ambiental.
+- Respiración discreta.
+- Variación localizada de luminosidad.
+- Reflejos de la pantalla de la laptop.
+- Lluvia de caracteres de baja opacidad.
+- Escaneo ocasional.
+- Reconstrucción digital parcial.
+- Transiciones suaves.
+
+Eliminar los controles visibles del motor ASCII en la versión comercial.
+
+El personaje debe sentirse como parte de la identidad de la marca, no como una demostración técnica de programación.
+
+No introducir animaciones que bloqueen la navegación.
+
+---
+
+# 07. CARRUSEL DE MÉTODOS DESTACADOS
+
+Crear una sección inmediatamente después del Hero denominada:
+
+**Métodos destacados**
+
+Texto secundario:
+
+«Explora conocimientos que transforman tu manera de comprender la tecnología.»
+
+Esta sección deberá mostrar una pasarela horizontal de tarjetas comerciales.
+
+El carrusel deberá permitir:
+
+- Desplazamiento horizontal.
+- Navegación mediante flechas.
+- Gestos táctiles.
+- Scroll mediante trackpad.
+- Navegación por teclado.
+- Transiciones fluidas.
+- Desplazamiento por tarjetas.
+- Vista parcial de la siguiente tarjeta para indicar que existe más contenido.
+
+No utilizar una rotación automática agresiva. Si se implementa reproducción automática, deberá ser lenta, pausable y detenerse durante la interacción.
+
+Cada tarjeta deberá contener:
+
+- Portada gráfica.
+- Categoría.
+- Nombre del Método.
+- Descripción breve.
+- Dificultad.
+- Duración estimada.
+- Cantidad de módulos, si está disponible.
+- Etiqueta de gratuito o premium.
+- Precio en la moneda correspondiente.
+- Recompensa disponible al completarlo, si existe.
+- Botón para visualizar el Método.
+
+Ejemplo conceptual:
+
+```text
+┌────────────────────────────┐
+│                            │
+│    PORTADA DEL MÉTODO      │
+│    ASCII / MOTION ART      │
+│                            │
+├────────────────────────────┤
+│ SEGURIDAD OFENSIVA         │
+│                            │
+│ Fundamentos del            │
+│ Hacking Ético              │
+│                            │
+│ Nivel: Principiante        │
+│ 12 módulos · 8 horas       │
+│                            │
+│ ◈ 120 NØCORE               │
+│                            │
+│ [Explorar método →]        │
+└────────────────────────────┘
+```
+
+Los datos anteriores son únicamente ejemplos visuales. Utilizar el contenido real existente.
+
+Las tarjetas deberán utilizar:
+
+```css
+background: #0A0A0A;
+border: 1px solid #2E2E2E;
+border-radius: 12px;
+```
+
+Las portadas podrán incluir ilustraciones ASCII, gráficos técnicos, visualizaciones de redes, estructuras de código y animaciones sutiles.
+
+No repetir la misma imagen de un hacker encapuchado en todas las tarjetas.
+
+Cada Método debe contar con una identidad gráfica propia dentro del universo NØTRACE.
+
+En la parte superior derecha de la sección incorporar:
+
+**Ver todos los métodos →**
+
+Este botón deberá llevar al catálogo independiente.
+
+---
+
+# 08. PÁGINA INDEPENDIENTE DE MÉTODOS
+
+Crear un catálogo comercial completo utilizando el sistema visual existente.
+
+Incluir:
+
+- Buscador.
+- Filtros.
+- Categorías.
+- Ordenamiento.
+- Métodos gratuitos.
+- Métodos premium.
+- Métodos destacados.
+- Métodos recientes.
+- Filtros por dificultad.
+- Filtros por duración.
+- Filtros por moneda aceptada.
+- Filtros por requisitos.
+
+Categorías sugeridas:
+
+- Hacking ético.
+- Ciberseguridad defensiva.
+- Linux.
+- Redes.
+- Programación.
+- Seguridad web.
+- Criptografía.
+- Informática forense.
+- OSINT responsable.
+- Seguridad en la nube.
+- Privacidad digital.
+- Análisis de amenazas.
+- Seguridad de aplicaciones.
+
+Todos los laboratorios y contenidos prácticos deberán realizarse en entornos propios, autorizados o simulados.
+
+Las páginas individuales de los Métodos deberán incluir:
+
+- Portada principal.
+- Descripción.
+- Objetivos.
+- Conocimientos requeridos.
+- Temario.
+- Módulos.
+- Nivel.
+- Duración.
+- Información del instructor, cuando exista.
+- Recursos incluidos.
+- Precio.
+- Recompensas.
+- Acceso o adquisición.
+
+Los usuarios que ya posean el Método deberán visualizar un botón de acceso o continuación en lugar de volver a comprarlo.
+
+---
+
+# 09. NØTRACE ECONOMY SYSTEM
+
+Diseñar un ecosistema económico interno basado en dos monedas virtuales diferenciadas.
+
+No utilizar nombres genéricos como Coins, Tokens, Gold o Credits como identidad principal.
+
+Las monedas oficiales propuestas serán:
+
+# NØBYTE
+
+Moneda común, educativa y de recompensas.
+
+# NØCORE
+
+Moneda premium, comercial y de mayor valor.
+
+Ambas deberán funcionar conceptualmente como créditos internos de NØTRACE.
+
+No deben presentarse como criptomonedas reales, activos financieros, inversiones o tokens negociables en mercados externos.
+
+Durante esta fase se diseñará la experiencia visual y la arquitectura conceptual de la economía.
+
+No implementar todavía procesamiento de pagos, compra real de monedas, blockchain, transferencias financieras, conversiones monetarias reales ni almacenamiento de fondos.
+
+---
+
+# 10. NØBYTE — MONEDA EDUCATIVA
+
+NØBYTE representa pequeñas unidades de conocimiento, actividad y participación dentro del ecosistema.
+
+Inspiración del nombre:
+
+- Byte.
+- Información digital.
+- Datos.
+- Aprendizaje.
+- Actividad tecnológica.
+
+Será la moneda más accesible.
+
+Sus objetivos principales serán fomentar la participación, el aprendizaje y la utilización responsable de las herramientas.
+
+## Identidad visual
+
+- Forma hexagonal.
+- Acabado metálico oscuro.
+- Borde gris plateado.
+- Símbolo central inspirado en dos bloques binarios.
+- Apariencia tecnológica y precisa.
+- Diseño monocromático.
+
+Propuesta de colores:
+
+```css
+--byte-dark: #111111;
+--byte-surface: #242424;
+--byte-edge: #626262;
+--byte-highlight: #B3B3B3;
+--byte-symbol: #E5E5E5;
+```
+
+El símbolo deberá funcionar correctamente en tamaños de 16px, 24px, 32px, 64px y superiores.
+
+No utilizar emojis como representación oficial.
+
+Crear un SVG original reutilizable.
+
+## Formas futuras de obtener NØBYTE
+
+- Completar Métodos.
+- Finalizar módulos.
+- Aprobar evaluaciones.
+- Completar laboratorios.
+- Participar en eventos.
+- Completar misiones.
+- Alcanzar objetivos educativos.
+- Desbloquear logros.
+- Participar en actividades de la academia.
+- Recibir promociones autorizadas.
+- Adquirir paquetes de NØBYTE, si se decide habilitarlos.
+
+## Usos futuros
+
+- Herramientas de bajo consumo.
+- Consultas adicionales.
+- Laboratorios básicos.
+- Recursos complementarios.
+- Métodos seleccionados.
+- Elementos de personalización.
+- Eventos educativos.
+- Recompensas y beneficios definidos por la plataforma.
+
+No recompensar acciones repetitivas que puedan automatizarse fácilmente sin aportar valor educativo.
+
+---
+
+# 11. NØCORE — MONEDA PREMIUM
+
+NØCORE representa el núcleo del ecosistema tecnológico NØTRACE.
+
+Inspiración del nombre:
+
+- Núcleo de procesamiento.
+- Infraestructura.
+- Capacidad tecnológica.
+- Recursos de alto valor.
+- Acceso premium.
+
+Será la moneda de mayor valor comercial.
+
+## Identidad visual
+
+- Forma octogonal o circular facetada.
+- Núcleo central luminoso.
+- Acabado blanco plateado.
+- Bordes metálicos.
+- Detalles geométricos inspirados en procesadores.
+- Símbolo central basado en la letra Ø.
+- Apariencia más exclusiva que NØBYTE.
+
+Propuesta de colores:
+
+```css
+--core-dark: #141414;
+--core-surface: #303030;
+--core-edge: #BFBFBF;
+--core-highlight: #FFFFFF;
+--core-symbol: #FFFFFF;
+```
+
+Diferenciar ambas monedas mediante forma, símbolo, luminosidad y composición.
+
+No depender únicamente del color.
+
+NØCORE deberá parecer un recurso tecnológico premium, no una moneda dorada de videojuego.
+
+## Formas futuras de obtener NØCORE
+
+- Recargas comerciales.
+- Promociones oficiales limitadas.
+- Eventos especiales.
+- Recompensas excepcionales definidas por la administración.
+
+## Usos futuros
+
+- Métodos premium.
+- Laboratorios avanzados.
+- Herramientas con mayor costo operativo.
+- Recursos exclusivos.
+- Paquetes educativos.
+- Servicios adicionales.
+- Acceso a funcionalidades especializadas.
+
+NØCORE no deberá anunciarse como una inversión ni prometer aumento de valor.
+
+---
+
+# 12. DISEÑO DE LAS MONEDAS
+
+Crear un sistema de componentes visuales específico para ambas monedas.
+
+Componentes recomendados:
+
+```text
+CurrencyIcon
+ByteIcon
+CoreIcon
+CurrencyAmount
+CurrencyBalance
+CurrencyBadge
+CurrencyCard
+CurrencyStack
+RewardAnimation
+WalletBalance
+CurrencyPrice
+```
+
+Crear versiones:
+
+- SVG vectorial.
+- Icono simplificado.
+- Icono detallado.
+- Versión monocromática.
+- Versión para fondos oscuros.
+- Versión animada.
+- Versión de presentación comercial.
+- Versión estática accesible.
+
+Para representaciones grandes, incorporar profundidad mediante capas, gradientes monocromáticos y reflejos metálicos controlados.
+
+## Animaciones de NØBYTE
+
+- Pulso suave.
+- Reconstrucción mediante pequeños fragmentos digitales.
+- Reflejo metálico ocasional.
+- Aparición progresiva.
+- Incremento visual del contador.
+
+## Animaciones de NØCORE
+
+- Rotación ambiental lenta.
+- Iluminación del núcleo.
+- Movimiento sutil de anillos geométricos.
+- Reflejo blanco controlado.
+- Animación de adquisición.
+- Reconstrucción procedural.
+
+Estas animaciones deberán utilizarse en momentos relevantes.
+
+Los iconos pequeños de la navegación no deberán permanecer realizando animaciones complejas constantemente.
+
+---
+
+# 13. MODELO ECONÓMICO CONCEPTUAL
+
+La economía deberá distinguir claramente el progreso educativo del valor comercial.
+
+Modelo recomendado:
+
+| Característica | NØBYTE | NØCORE |
+|---|---|---|
+| Categoría | Común | Premium |
+| Valor relativo | Menor | Mayor |
+| Recompensas educativas | Principal | Excepcional |
+| Recargas futuras | Opcionales | Principal |
+| Herramientas básicas | Sí | Opcional |
+| Herramientas avanzadas | Seleccionadas | Sí |
+| Métodos gratuitos | No necesario | No necesario |
+| Métodos premium | Seleccionados | Principal |
+| Transferencias externas | No | No |
+| Retiro a dinero real | No | No |
+
+No establecer todavía una tasa de conversión definitiva entre las monedas.
+
+No permitir inicialmente conversiones de NØBYTE a NØCORE ni operaciones entre usuarios. Esto evitará complejidad económica, abuso de recompensas y posibles problemas comerciales.
+
+Los precios y recompensas deberán poder configurarse posteriormente desde administración.
+
+Ejemplos exclusivamente para probar la interfaz:
+
+| Actividad | Recompensa o precio ilustrativo |
+|---|---|
+| Completar un módulo | +10 NØBYTE |
+| Aprobar una evaluación | +25 NØBYTE |
+| Completar un Método | +100 NØBYTE |
+| Herramienta básica adicional | 5 NØBYTE |
+| Laboratorio avanzado | 20 NØCORE |
+| Método premium | 120 NØCORE |
+
+Estos valores no representan precios definitivos ni equivalencias monetarias reales.
+
+La economía deberá diseñarse alrededor de costos operativos reales, valor educativo y sostenibilidad comercial antes de habilitarse.
+
+No utilizar apuestas, cajas de recompensa aleatorias de pago, mecanismos especulativos ni sistemas diseñados para fomentar gastos compulsivos.
+
+---
+
+# 14. SISTEMA DE BILLETERA — NØTRACE VAULT
+
+La billetera oficial se denominará:
+
+**NØTRACE VAULT**
+
+Será el centro de administración económica del usuario.
+
+Crear una página independiente con una apariencia de producto financiero tecnológico, manteniendo la identidad monocromática.
+
+La interfaz deberá incluir:
+
+## Balance principal
+
+Dos tarjetas diferenciadas:
+
+- Balance NØBYTE.
+- Balance NØCORE.
+
+Cada tarjeta deberá mostrar:
+
+- Icono oficial.
+- Nombre de la moneda.
+- Saldo.
+- Descripción.
+- Acceso a información de la moneda.
+- Botón de recarga o adquisición, cuando corresponda.
+- Botón para consultar movimientos.
+
+## Acciones principales
+
+- Recargar.
+- Ver recompensas.
+- Consultar historial.
+- Explorar Métodos.
+- Explorar herramientas.
+- Información sobre las monedas.
+
+## Historial de movimientos
+
+Preparar estados visuales para:
+
+- Recarga.
+- Adquisición de Método.
+- Uso de herramienta.
+- Recompensa educativa.
+- Recompensa de evento.
+- Ajuste administrativo.
+- Reembolso.
+- Operación pendiente.
+- Operación rechazada.
+
+Cada movimiento podrá mostrar conceptualmente:
+
+- Identificador.
+- Fecha.
+- Hora.
+- Tipo.
+- Moneda.
+- Cantidad.
+- Estado.
+- Concepto.
+
+Durante esta fase utilizar exclusivamente datos de demostración claramente identificados.
+
+No registrar operaciones ficticias como transacciones reales.
+
+No crear un sistema inseguro de balance mediante variables del frontend o localStorage y presentarlo como una economía funcional.
+
+---
+
+# 15. DISEÑO DEL CENTRO DE RECARGAS
+
+Crear un apartado independiente denominado:
+
+**Recargar saldo**
+
+La interfaz deberá funcionar conceptualmente como una experiencia de compra profesional.
+
+El flujo visual será:
+
+```text
+Seleccionar moneda
+        ↓
+Seleccionar paquete
+        ↓
+Seleccionar método de pago
+        ↓
+Revisar resumen
+        ↓
+Confirmación
+```
+
+Implementar únicamente el diseño y la navegación del prototipo.
+
+No procesar pagos reales durante esta fase.
+
+## Selección de monedas
+
+El usuario podrá visualizar las características de:
+
+- NØBYTE.
+- NØCORE.
+
+## Paquetes de recarga
+
+Crear tarjetas de paquetes visuales.
+
+Ejemplos ilustrativos para NØCORE:
+
+```text
+STARTER
+100 NØCORE
+
+OPERATOR
+250 NØCORE
+
+ADVANCED
+500 NØCORE
+
+ELITE
+1000 NØCORE
+```
+
+Ejemplos ilustrativos para NØBYTE:
+
+```text
+BYTE PACK
+500 NØBYTE
+
+DATA PACK
+1500 NØBYTE
+
+SYSTEM PACK
+5000 NØBYTE
+```
+
+No introducir precios definitivos en dinero real sin aprobación.
+
+Los paquetes deberán ser configurables posteriormente.
+
+No utilizar descuentos ficticios ni afirmaciones de ahorro que no estén respaldadas por precios reales.
+
+---
+
+# 16. MÉTODOS DE PAGO FUTUROS
+
+Diseñar visualmente un centro de pagos preparado para posibles integraciones con:
+
+## Criptomonedas
+
+- Bitcoin.
+- Ethereum.
+- USDT.
+- USDC.
+- Otras monedas y redes que se aprueben posteriormente.
+
+## Plataformas
+
+- Binance Pay.
+- PayPal.
+- Telegram mediante una integración de pagos compatible y autorizada.
+- Tarjetas bancarias.
+- Otros procesadores de pago futuros.
+
+Cada método deberá contar con:
+
+- Icono.
+- Nombre.
+- Descripción.
+- Estado de disponibilidad.
+- Información complementaria.
+
+Utilizar recursos oficiales de marca cuando sus condiciones lo permitan.
+
+Los métodos que no estén implementados deberán identificarse claramente como:
+
+**Próximamente**
+
+o:
+
+**Integración no disponible**
+
+No generar direcciones de criptomonedas falsas.
+
+No generar códigos QR de pago falsos.
+
+No simular pagos exitosos.
+
+No solicitar claves privadas, frases semilla, contraseñas de PayPal o credenciales de Binance.
+
+No asumir que Telegram constituye por sí mismo un procesador de pagos.
+
+Cuando se habiliten pagos reales, verificar las condiciones comerciales, disponibilidad regional, políticas del proveedor y requisitos legales correspondientes.
+
+Por ahora, desarrollar exclusivamente la experiencia visual.
+
+---
+
+# 17. CENTRO DE HERRAMIENTAS — NØTRACE TOOLKIT
+
+Separar completamente las herramientas del Home.
+
+El nuevo apartado se denominará:
+
+**NØTRACE TOOLKIT**
+
+Será un centro de utilidades profesionales de ciberseguridad, privacidad y aprendizaje.
+
+Diseñar un catálogo organizado por categorías.
+
+Cada herramienta deberá contar con:
+
+- Icono.
+- Nombre.
+- Descripción breve.
+- Categoría.
+- Estado de disponibilidad.
+- Costo en monedas, si corresponde.
+- Botón de acceso.
+- Indicador de gratuita o premium.
+- Información sobre su finalidad.
+
+No crear herramientas falsas presentadas como funcionales.
+
+Las herramientas futuras deberán mostrar el estado Próximamente.
+
+---
+
+# 18. VPN INSPECTOR
+
+Trasladar completamente el mapa mundial existente a una página independiente:
+
+```text
+/herramientas/vpn-inspector
+```
+
+Conservar todos los avances técnicos realizados:
+
+- Cartografía mundial real.
+- Fronteras de países.
+- Zoom.
+- Desplazamiento.
+- Identificación de IP pública.
+- Geolocalización aproximada.
+- Comparación de ubicaciones.
+- Marcadores animados.
+- Resaltado de países.
+- Animaciones de pulsación.
+- Historial temporal.
+- Actualización periódica opcional.
+
+El VPN Inspector deberá tener una interfaz especializada y disponer de suficiente espacio para el mapa mundial.
+
+Conservar la integración actual con IPinfo y su configuración segura de proxies.
+
+No modificar innecesariamente el backend que ya funciona.
+
+No afirmar que una VPN protege completamente al usuario únicamente porque su IP pública haya cambiado.
+
+Los arcos animados deberán seguir identificándose como comparaciones geográficas, no como rutas reales del tráfico.
+
+Propuesta comercial futura:
+
+- Comprobación básica gratuita.
+- Funcionalidades avanzadas mediante NØBYTE.
+- Informes ampliados mediante NØCORE, si existe un costo operativo que lo justifique.
+
+No cobrar realmente por estas acciones durante la fase de diseño.
+
+---
+
+# 19. CATÁLOGO DE HERRAMIENTAS FUTURAS
+
+Diseñar y organizar los accesos visuales correspondientes a las siguientes herramientas.
+
+## PRIVACY LAB
+
+Herramientas de diagnóstico de privacidad.
+
+| Herramienta | Icono Lucide | Función |
+|---|---|---|
+| VPN Inspector | globe | Comprobación de IP y ubicación pública |
+| DNS Leak Test | network | Diagnóstico de resolutores DNS |
+| WebRTC Leak Test | shield-alert | Comprobación de exposición de direcciones |
+| IPv4 / IPv6 Test | route | Comparación de conectividad IP |
+| Browser Fingerprint | fingerprint | Análisis de características del navegador |
+| Timezone Check | clock | Comparación de zona horaria y geolocalización |
+| Browser Privacy Audit | shield-check | Evaluación de señales de privacidad |
+| Privacy Report | file-check | Informe consolidado |
+
+## NETWORK LAB
+
+Herramientas educativas de redes.
+
+| Herramienta | Icono Lucide | Función |
+|---|---|---|
+| Network Visualizer | network | Visualización de topologías |
+| ASN Intelligence | server | Información de operadores y redes |
+| DNS Lookup | search | Consulta de registros DNS públicos |
+| IP Calculator | calculator | Cálculo de subredes |
+| HTTP Inspector | terminal | Inspección de respuestas HTTP autorizadas |
+| TLS Inspector | lock | Consulta de certificados y configuración TLS |
+| Connectivity Test | activity | Diagnóstico de conectividad |
+| Network Simulator | workflow | Simulación educativa de redes |
+
+## CRYPTO LAB
+
+Herramientas de criptografía y manipulación de datos.
+
+| Herramienta | Icono Lucide | Función |
+|---|---|---|
+| Hash Generator | hash | Generación de hashes |
+| Hash Comparator | equal | Comparación de integridad |
+| Password Generator | key-round | Generación local de contraseñas |
+| Password Strength | shield-check | Evaluación local de fortaleza |
+| Base64 Toolkit | binary | Codificación y decodificación |
+| Encryption Playground | lock-keyhole | Demostraciones de cifrado |
+| Data Converter | arrow-left-right | Conversión de formatos |
+| Entropy Analyzer | chart-no-axes-column | Visualización educativa de entropía |
+
+## SECURITY LAB
+
+Herramientas educativas de seguridad defensiva.
+
+| Herramienta | Icono Lucide | Función |
+|---|---|---|
+| Security Headers | shield | Evaluación de cabeceras de sitios autorizados |
+| CVE Explorer | database | Consulta de vulnerabilidades publicadas |
+| File Integrity | file-check | Verificación de integridad de archivos |
+| Metadata Inspector | file-search | Inspección local de metadatos |
+| URL Inspector | link | Análisis de características de URL |
+| Log Analyzer | file-text | Análisis de registros proporcionados |
+| Security Checklist | list-checks | Listas de comprobación de seguridad |
+| Threat Intelligence | radar | Consulta de indicadores públicos de amenazas |
+
+## PRACTICE LAB
+
+Entornos educativos controlados.
+
+| Herramienta | Icono Lucide | Función |
+|---|---|---|
+| Linux Playground | terminal | Práctica de comandos en entorno aislado |
+| Coding Playground | code | Ejercicios de programación |
+| Network Sandbox | boxes | Simulación de redes |
+| CTF Arena | flag | Desafíos educativos autorizados |
+| Forensics Lab | search | Ejercicios de informática forense |
+| Defense Simulator | shield | Escenarios de defensa simulados |
+
+Las herramientas deberán respetar la privacidad, no realizar análisis activos contra infraestructura ajena sin autorización y utilizar entornos aislados cuando corresponda.
+
+Esta fase contempla el diseño del catálogo y la preparación conceptual de las herramientas futuras, no su implementación funcional completa.
+
+---
+
+# 20. PRESENTACIÓN DE HERRAMIENTAS EN EL HOME
+
+Incorporar una sección denominada:
+
+**Tu arsenal de conocimiento.**
+
+Texto secundario:
+
+«Herramientas diseñadas para comprender, analizar y proteger los sistemas digitales.»
+
+Mostrar únicamente una selección de herramientas destacadas.
+
+Ejemplo:
+
+- VPN Inspector.
+- DNS Leak Test.
+- Browser Privacy.
+- Hash Generator.
+- Network Visualizer.
+- TLS Inspector.
+
+Cada tarjeta deberá mantener la estética definida anteriormente.
+
+```text
+┌──────────────────────────────┐
+│ [ICONO]                      │
+│                              │
+│ VPN Inspector                │
+│                              │
+│ Verifica la ubicación        │
+│ pública de tu conexión.      │
+│                              │
+│ Disponible                   │
+│                              │
+│ [Abrir herramienta →]        │
+└──────────────────────────────┘
+```
+
+Utilizar estados reales de disponibilidad.
+
+Incorporar al final de la sección:
+
+**Explorar todas las herramientas →**
+
+No incrustar el mapa mundial directamente en el Home.
+
+---
+
+# 21. SISTEMA DE MISIONES, RECOMPENSAS Y EVENTOS
+
+Diseñar una experiencia de progresión educativa denominada:
+
+**NØTRACE Operations**
+
+Este apartado deberá representar actividades que permitan al usuario obtener recompensas y desarrollar habilidades.
+
+Tipos de operaciones:
+
+- Misiones educativas.
+- Retos semanales.
+- Laboratorios.
+- Eventos especiales.
+- Evaluaciones.
+- Proyectos.
+- Objetivos de aprendizaje.
+- Desafíos CTF autorizados.
+- Actividades comunitarias.
+
+Cada misión podrá mostrar:
+
+- Nombre.
+- Descripción.
+- Dificultad.
+- Progreso.
+- Requisitos.
+- Recompensa.
+- Estado.
+- Fecha límite, cuando exista.
+
+Las recompensas comunes deberán utilizar principalmente NØBYTE.
+
+Las recompensas excepcionales podrán incluir NØCORE cuando se habiliten mediante reglas administrativas.
+
+Incorporar estados visuales:
+
+```text
+Disponible
+En progreso
+Completada
+Recompensa disponible
+Recompensa reclamada
+Finalizada
+```
+
+La recompensa deberá poder reclamarse desde un botón claramente identificado.
+
+Durante esta etapa el botón será una demostración visual o permanecerá deshabilitado si el sistema económico real aún no existe.
+
+Diseñar futuras animaciones de recompensa mediante:
+
+- Reconstrucción digital de la moneda.
+- Aparición de partículas monocromáticas.
+- Incremento del contador.
+- Confirmación visual.
+- Notificación discreta.
+
+Evitar efectos similares a casinos, recompensas aleatorias o mecánicas de presión comercial.
+
+---
+
+# 22. SISTEMA DE PROGRESIÓN DEL USUARIO
+
+Separar completamente tres conceptos:
+
+1. Experiencia educativa.
+2. Moneda común.
+3. Moneda premium.
+
+El usuario podrá obtener experiencia mediante su progreso, pero la experiencia no tendrá necesariamente valor monetario.
+
+Propuesta de rangos:
+
+```text
+01 — INITIATE
+02 — OPERATOR
+03 — ANALYST
+04 — SPECIALIST
+05 — ARCHITECT
+06 — SENTINEL
+07 — ZERO
+```
+
+Los rangos deberán representar progreso y conocimiento.
+
+No permitir comprar niveles académicos, certificados o logros que deban obtenerse mediante aprendizaje.
+
+Diseñar insignias vectoriales originales para cada rango.
+
+Utilizar formas geométricas, escudos abstractos, estructuras digitales y detalles monocromáticos.
+
+No utilizar iconos de videojuegos genéricos ni estética militar exagerada.
+
+---
+
+# 23. SOBRE NØTRACE
+
+Crear una sección informativa en el Home y una página independiente.
+
+Propuesta de texto:
+
+**El conocimiento no tiene límites. La responsabilidad sí.**
+
+«NØTRACE es un ecosistema de aprendizaje tecnológico especializado en ciberseguridad, privacidad digital y comprensión de sistemas informáticos. Nuestra misión es ofrecer métodos educativos, herramientas prácticas y experiencias de aprendizaje que permitan desarrollar habilidades reales en entornos responsables y autorizados.»
+
+Mostrar conceptualmente:
+
+- Nuestra misión.
+- Nuestra visión.
+- Metodología.
+- Aprendizaje práctico.
+- Herramientas.
+- Comunidad.
+- Responsabilidad.
+- Evolución de la plataforma.
+
+No inventar cifras de estudiantes, alianzas empresariales, certificaciones ni testimonios.
+
+Si la plataforma todavía está en desarrollo, comunicarlo apropiadamente.
+
+---
+
+# 24. SISTEMA GLOBAL DE DISEÑO
+
+Conservar y centralizar los design tokens previamente definidos.
+
+```css
+:root {
+    color-scheme: dark;
+
+    --bg-primary: #000000;
+    --bg-secondary: #0A0A0A;
+    --bg-tertiary: #121212;
+    --bg-elevated: #171717;
+    --bg-hover: #1A1A1A;
+    --bg-icon: #232323;
+
+    --border-subtle: #171717;
+    --border-default: #2E2E2E;
+    --border-hover: #404040;
+    --border-active: #737373;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #A3A3A3;
+    --text-muted: #737373;
+    --text-disabled: #525252;
+
+    --accent: #FFFFFF;
+    --accent-hover: #E5E5E5;
+    --accent-foreground: #000000;
+
+    --success: #4ADE80;
+    --warning: #EAB308;
+    --danger: #EF4444;
+    --info: #60A5FA;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+
+    --motion-fast: 150ms;
+    --motion-normal: 200ms;
+    --motion-medium: 350ms;
+    --motion-slow: 600ms;
+
+    --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+}
+```
+
+Mantener los componentes visuales existentes que ya cumplen estas reglas.
+
+No introducir estilos incompatibles entre Home, Métodos, Herramientas, Campus y Billetera.
+
+---
+
+# 25. SISTEMA DE ICONOGRAFÍA
+
+Utilizar Lucide Icons como sistema principal de iconos funcionales.
+
+| Apartado | Icono |
+|---|---|
+| Inicio | house |
+| Métodos | book-open |
+| Herramientas | boxes |
+| Campus | graduation-cap |
+| Progreso | chart-no-axes-column |
+| Billetera | wallet |
+| Recargar | circle-plus |
+| Recompensas | gift |
+| Misiones | target |
+| Eventos | calendar |
+| Historial | history |
+| Perfil | user |
+| Configuración | settings |
+| Notificaciones | bell |
+| Información | info |
+| Ayuda | circle-help |
+| Administración | layout-dashboard |
+| Seguridad | shield |
+| Laboratorios | flask-conical |
+| Certificados | award |
+
+Las monedas NØBYTE y NØCORE deberán utilizar iconos SVG propios, no iconos genéricos de monedas.
+
+Todos los iconos deberán compartir:
+
+- Grosor consistente.
+- Geometría limpia.
+- Tamaño proporcional.
+- Colores monocromáticos.
+- Estados interactivos coherentes.
+
+---
+
+# 26. MOTION GRAPHICS Y ANIMACIONES GLOBALES
+
+Crear una biblioteca de animaciones reutilizables.
+
+La plataforma deberá incluir:
+
+### Animaciones de navegación
+
+- Transiciones entre páginas.
+- Aparición progresiva de contenido.
+- Indicadores de sección activa.
+- Menús desplegables.
+- Transiciones de navegación móvil.
+
+### Animaciones comerciales
+
+- Carrusel de Métodos.
+- Revelación de portadas.
+- Hover de tarjetas.
+- Elevación visual discreta.
+- Animación de flechas.
+- Presentación escalonada de secciones.
+
+### Animaciones económicas
+
+- Incremento y disminución de saldo.
+- Presentación de monedas.
+- Reflejos metálicos.
+- Movimiento del núcleo NØCORE.
+- Reconstrucción digital NØBYTE.
+- Confirmaciones.
+- Transiciones entre paquetes.
+
+### Animaciones técnicas
+
+- ASCII Motion Engine.
+- Data Rain.
+- Network Graph.
+- Scanline.
+- Character Mutation.
+- Signal Pulse.
+- Route Flow.
+- Terminal Typing.
+- Procedural Noise.
+
+No utilizar todos los efectos simultáneamente.
+
+El Home podrá tener mayor expresividad visual.
+
+El Campus y las herramientas deberán priorizar la concentración y la funcionalidad.
+
+La Billetera deberá transmitir precisión, estabilidad y confianza.
+
+Los movimientos deberán respetar `prefers-reduced-motion`, navegación por teclado y preferencias de accesibilidad.
+
+---
+
+# 27. DISEÑO FUTURO DEL PANEL ADMINISTRATIVO
+
+Preparar conceptualmente una sección administrativa especializada en economía.
+
+Apartados futuros:
+
+```text
+Economía
+├── Configuración general
+├── Monedas
+├── Paquetes
+├── Precios
+├── Recompensas
+├── Misiones
+├── Eventos
+├── Transacciones
+├── Recargas
+├── Reembolsos
+├── Ajustes administrativos
+└── Auditoría
+```
+
+El administrador podrá definir posteriormente:
+
+- Costos de herramientas.
+- Precios de Métodos.
+- Monedas aceptadas.
+- Recompensas.
+- Disponibilidad.
+- Paquetes comerciales.
+- Límites de uso.
+- Promociones.
+- Actividades especiales.
+
+Durante esta fase no habilitar operaciones reales de modificación de balances.
+
+Diseñar exclusivamente las pantallas necesarias y documentar la arquitectura futura.
+
+---
+
+# 28. SEGURIDAD DE LA ECONOMÍA FUTURA
+
+Antes de implementar una economía funcional será necesario desarrollar una arquitectura de seguridad independiente.
+
+Requisitos futuros obligatorios:
+
+- Balances administrados desde el servidor.
+- Registro contable auditable.
+- Operaciones atómicas.
+- Transacciones de base de datos.
+- Identificadores únicos.
+- Protección contra operaciones duplicadas.
+- Validación de permisos.
+- Prevención de manipulación de precios.
+- Verificación de propiedad de Métodos.
+- Protección contra abuso de recompensas.
+- Verificación de webhooks de pago.
+- Confirmación real de transacciones.
+- Control de concurrencia.
+- Reembolsos controlados.
+- Registro de modificaciones administrativas.
+- Límites de uso.
+- Separación de operaciones pendientes y confirmadas.
+
+El frontend nunca deberá determinar unilateralmente el balance, los precios definitivos o la confirmación de un pago.
+
+Las cantidades de monedas deberán utilizar unidades enteras o una representación numérica exacta, evitando errores de precisión.
+
+No desarrollar estas operaciones financieras reales durante esta fase.
+
+Documentar los requisitos para una implementación posterior y segura.
+
+---
+
+# 29. ARQUITECTURA DE COMPONENTES
+
+Organizar los nuevos componentes de forma modular.
+
+Propuesta orientativa:
+
+```text
+src/
+├── design-system/
+│   ├── tokens/
+│   ├── typography/
+│   ├── icons/
+│   └── motion/
+│
+├── components/
+│   ├── navigation/
+│   ├── home/
+│   ├── methods/
+│   ├── tools/
+│   ├── wallet/
+│   ├── currencies/
+│   ├── rewards/
+│   ├── missions/
+│   └── ui/
+│
+├── features/
+│   ├── methods/
+│   ├── toolkit/
+│   ├── vpn-inspector/
+│   ├── economy/
+│   ├── vault/
+│   ├── operations/
+│   └── campus/
+│
+├── visual-engine/
+│   ├── ascii/
+│   ├── particles/
+│   ├── network/
+│   └── currencies/
+│
+├── assets/
+│   ├── currencies/
+│   │   ├── nobyte.svg
+│   │   └── nocore.svg
+│   ├── method-covers/
+│   ├── icons/
+│   └── illustrations/
+│
+└── documentation/
+```
+
+Adaptar esta estructura al proyecto existente.
+
+No reorganizar indiscriminadamente el repositorio ni duplicar componentes que ya funcionan.
+
+---
+
+# 30. FASES DE IMPLEMENTACIÓN
+
+## Fase 1 — Auditoría
+
+- Analizar el repositorio.
+- Identificar rutas actuales.
+- Identificar componentes.
+- Identificar dependencias.
+- Revisar el sistema visual.
+- Revisar el motor ASCII.
+- Revisar VPN Inspector.
+- Crear un punto de restauración seguro.
+
+## Fase 2 — Reestructuración
+
+- Crear navegación independiente.
+- Separar Home.
+- Separar Métodos.
+- Separar Herramientas.
+- Trasladar VPN Inspector.
+- Actualizar rutas y enlaces.
+
+## Fase 3 — Home
+
+- Perfeccionar el Hero.
+- Eliminar controles de demostración.
+- Implementar carrusel de Métodos.
+- Crear accesos a herramientas.
+- Crear sección informativa.
+- Incorporar presentación económica.
+- Rediseñar navegación y footer.
+
+## Fase 4 — Métodos
+
+- Actualizar terminología.
+- Crear catálogo.
+- Unificar tarjetas.
+- Incorporar filtros.
+- Adaptar páginas individuales.
+
+## Fase 5 — Identidad económica
+
+- Diseñar NØBYTE.
+- Diseñar NØCORE.
+- Crear SVG originales.
+- Crear variantes.
+- Crear motion graphics.
+- Crear componentes de moneda.
+
+## Fase 6 — NØTRACE VAULT
+
+- Diseñar balances.
+- Diseñar historial.
+- Diseñar recargas.
+- Diseñar paquetes.
+- Diseñar selección de pagos.
+- Identificar claramente los datos de demostración.
+
+## Fase 7 — NØTRACE TOOLKIT
+
+- Crear catálogo de herramientas.
+- Organizar categorías.
+- Integrar VPN Inspector.
+- Diseñar herramientas futuras.
+- Diferenciar estados disponibles y próximos.
+
+## Fase 8 — NØTRACE Operations
+
+- Diseñar misiones.
+- Diseñar recompensas.
+- Diseñar eventos.
+- Diseñar logros.
+- Diseñar progresión.
+
+## Fase 9 — Optimización
+
+- Responsive design.
+- Accesibilidad.
+- Rendimiento.
+- Animaciones.
+- Carga de recursos.
+- Consistencia visual.
+
+## Fase 10 — Auditoría final
+
+- Revisar todas las rutas.
+- Verificar funcionalidades anteriores.
+- Inspeccionar capturas reales.
+- Corregir inconsistencias.
+- Ejecutar pruebas.
+- Documentar limitaciones.
+
+---
+
+# 31. DOCUMENTACIÓN OBLIGATORIA
+
+Mantener actualizados los archivos de contexto y documentación.
+
+Crear o actualizar:
+
+```text
+PROJECT_CONTEXT.md
+DESIGN_SYSTEM.md
+MOTION_SYSTEM.md
+ECONOMY_SYSTEM.md
+CURRENCY_DESIGN.md
+WALLET_DESIGN.md
+PAYMENT_INTEGRATIONS_PLAN.md
+TOOLS_ROADMAP.md
+ROUTING_ARCHITECTURE.md
+REDESIGN_PROGRESS.md
+QA_REPORT.md
+```
+
+Registrar:
+
+- Fecha.
+- Fase.
+- Archivos modificados.
+- Decisiones.
+- Cambios.
+- Pruebas realizadas.
+- Resultados.
+- Errores.
+- Correcciones.
+- Limitaciones.
+- Tareas pendientes.
+
+El objetivo es que cualquier otro agente pueda continuar el proyecto sin perder el contexto.
+
+---
+
+# 32. RESTRICCIONES DE ESTA FASE
+
+Implementar la reestructuración de páginas, navegación, componentes visuales y experiencias comerciales.
+
+Conservar operativas las funcionalidades existentes que ya estén implementadas.
+
+Para las funcionalidades económicas nuevas, diseñar únicamente interfaces, prototipos, estados y arquitectura conceptual.
+
+NO implementar todavía:
+
+- Pagos reales.
+- Recargas reales.
+- Compra efectiva de monedas.
+- Venta real mediante las monedas nuevas.
+- Transferencias de dinero.
+- Blockchain.
+- Contratos inteligentes.
+- Intercambios de monedas.
+- Retiros.
+- Conversión a dinero real.
+- Integraciones financieras con Binance.
+- Integraciones financieras con PayPal.
+- Integraciones financieras con Telegram.
+- Procesamiento de criptomonedas.
+- Recompensas económicas reales.
+- Descuentos automáticos.
+- Manipulación de balances de usuarios.
+
+No desactivar o sustituir sistemas de pago que ya funcionen en el proyecto sin autorización expresa.
+
+Cualquier elemento económico de demostración deberá ser distinguible de una operación real.
+
+---
+
+# 33. CRITERIOS DE ACEPTACIÓN
+
+La transformación estará completa cuando:
+
+- El Home tenga una identidad comercial clara.
+- El Hero ASCII existente se encuentre perfeccionado.
+- Los controles de desarrollo hayan desaparecido de la interfaz comercial.
+- Los Métodos tengan una página independiente.
+- El catálogo utilice la nueva terminología.
+- Exista un carrusel de Métodos destacados.
+- Las herramientas tengan su propio catálogo.
+- VPN Inspector tenga una página independiente.
+- NØBYTE tenga una identidad visual original.
+- NØCORE tenga una identidad visual premium.
+- Ambas monedas sean visualmente diferenciables.
+- Exista una interfaz NØTRACE VAULT.
+- Exista una experiencia visual de recarga.
+- Los métodos de pago futuros estén correctamente presentados.
+- Las funciones no implementadas estén identificadas.
+- Exista un diseño de misiones y recompensas.
+- Los iconos sean consistentes.
+- Las animaciones estén optimizadas.
+- La experiencia móvil funcione correctamente.
+- No se hayan roto funcionalidades anteriores.
+- No se hayan habilitado operaciones financieras reales.
+- La documentación esté actualizada.
+
+---
+
+# 34. IDENTIDAD FINAL DEL ECOSISTEMA
+
+La arquitectura comercial y visual estará definida mediante las siguientes identidades:
+
+**NØTRACE**
+
+Marca principal y ecosistema de ciberseguridad.
+
+**NØTRACE METHODS**
+
+Catálogo de experiencias educativas.
+
+**NØTRACE TOOLKIT**
+
+Ecosistema de herramientas tecnológicas.
+
+**NØTRACE VAULT**
+
+Billetera y centro económico.
+
+**NØTRACE OPERATIONS**
+
+Misiones, eventos, actividades y recompensas.
+
+**NØTRACE CAMPUS**
+
+Entorno de aprendizaje.
+
+**NØBYTE**
+
+Moneda educativa y de participación.
+
+**NØCORE**
+
+Moneda premium y de acceso comercial.
+
+Estos nombres son propuestas de identidad. Antes de un lanzamiento comercial definitivo, deberán revisarse su disponibilidad y posibles conflictos de marca.
+
+---
+
+# 35. INSTRUCCIÓN FINAL AL AGENTE
+
+Comienza revisando completamente el proyecto existente y sus recursos visuales.
+
+No reconstruyas desde cero aquello que ya funciona.
+
+Utiliza como base los códigos, componentes, motores ASCII, sistemas de animación, mapas y design tokens desarrollados anteriormente.
+
+Ejecuta la reestructuración integral.
+
+Desarrolla los nuevos componentes visuales.
+
+Diseña las monedas con un nivel artístico elevado.
+
+Mantén una estética monocromática profesional.
+
+No conviertas la plataforma en un videojuego ni en una casa de cambio.
+
+No introduzcas funcionalidades financieras reales durante esta fase.
+
+El objetivo es construir una infraestructura visual y comercial coherente, preparada para evolucionar posteriormente hacia una plataforma completa de formación, herramientas de ciberseguridad y economía virtual.
+
+Utiliza las herramientas de navegador disponibles para inspeccionar visualmente cada página.
+
+No consideres terminada la tarea únicamente porque el código compile.
+
+Revisa la calidad artística, consistencia visual, navegación, animaciones, responsive design y preservación de funcionalidades existentes.
+
+Entrega un informe final de lo implementado, las decisiones tomadas, los archivos modificados, las pruebas ejecutadas y todo aquello que permanezca pendiente.
+
+**NØTRACE 3.0 — Knowledge. Technology. Evolution.**

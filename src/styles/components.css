@@ -1,0 +1,293 @@
+.nt-theme h1,
+.nt-theme h2,
+.nt-theme h3 {
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.nt-theme p {
+  margin: 0;
+}
+
+.nt-theme a:not(.nt-btn) {
+  color: inherit;
+}
+
+.nt-muted {
+  color: var(--text-secondary);
+}
+
+.nt-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.nt-surface {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.nt-surface--elevated {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.nt-interactive {
+  transition:
+    background var(--motion-fast),
+    border-color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.nt-interactive:hover {
+  background: #101010;
+  border-color: var(--border-hover);
+}
+
+.nt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 15px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font: 500 14px/1.25 var(--font-sans);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 150ms,
+    border-color 150ms,
+    transform 150ms;
+}
+
+.nt-btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-active);
+}
+
+.nt-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.nt-btn--primary {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.nt-btn--primary:hover:not(:disabled) {
+  background: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+.nt-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-secondary);
+}
+
+.nt-btn--ghost:hover:not(:disabled) {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: transparent;
+}
+
+.nt-btn--sm {
+  min-height: 36px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.nt-btn:disabled,
+.nt-btn[aria-disabled='true'] {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.nt-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.nt-icon-tile {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: var(--bg-icon);
+  border-radius: 6px;
+  color: #e5e5e5;
+}
+
+.nt-field {
+  display: grid;
+  gap: 7px;
+  font-weight: 500;
+}
+
+.nt-input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  font: 400 14px var(--font-sans);
+  transition: border-color 150ms;
+}
+
+.nt-input::placeholder {
+  color: var(--text-muted);
+}
+
+.nt-input:focus {
+  border-color: var(--border-active);
+  outline: none;
+}
+
+.nt-input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.nt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.nt-progress {
+  height: 5px;
+  background: #232323;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.nt-progress > span {
+  display: block;
+  width: var(--progress, 0%);
+  height: 100%;
+  background: #fff;
+  border-radius: inherit;
+  transition: width 200ms ease;
+}
+
+.nt-progress[data-indeterminate] > span {
+  width: 34%;
+  animation: nt-progress 1.4s ease-in-out infinite;
+}
+
+@keyframes nt-progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
+.nt-table-wrap {
+  overflow: auto;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+}
+
+.nt-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+.nt-table :is(th, td) {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.nt-table th {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg-secondary);
+}
+
+.nt-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.nt-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.nt-dialog {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: min(520px, calc(100% - 32px));
+  box-shadow: var(--shadow-lg);
+}
+
+.nt-dialog::backdrop {
+  background: #000b;
+  backdrop-filter: blur(4px);
+}
+
+.nt-skeleton {
+  min-height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #121212, #242424, #121212);
+  background-size: 200% 100%;
+  animation: nt-skeleton 1.6s linear infinite;
+}
+
+@keyframes nt-skeleton {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.nt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.nt-status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.nt-status--warning::before {
+  background: var(--warning);
+}
+
+.nt-status--danger::before {
+  background: var(--danger);
+}

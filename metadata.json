@@ -1,0 +1,6 @@
+{
+  "name": "NØTRACE — Cyber Academy & Network Command",
+  "description": "Plataforma interactiva de ciberseguridad, academia de hacking ético, laboratorio CLI y centro de comando VPN con detección de IP en tiempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
