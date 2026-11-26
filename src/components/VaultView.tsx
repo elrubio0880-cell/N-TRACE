@@ -74,7 +74,7 @@ export const VaultView: React.FC<VaultViewProps> = ({
           <div className="text-xs font-mono text-[#737373] uppercase tracking-wider mb-1">
             NØTRACE VAULT // SISTEMA ECONÓMICO INTERNO
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
             Billetera y Centro de Créditos
           </h1>
           <p className="text-sm text-[#A3A3A3] mt-2 max-w-2xl">
@@ -86,21 +86,21 @@ export const VaultView: React.FC<VaultViewProps> = ({
         </div>
 
         {/* Navigation Sub-Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E]">
+        <div className="grid grid-cols-3 sm:flex items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] w-full lg:w-auto">
           <button
             type="button"
             onClick={() => {
               setActiveTab('overview');
               onNavigate('/billetera');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'overview'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <Wallet className="w-3.5 h-3.5" />
-            <span>Balances</span>
+            <Wallet className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Balances</span>
           </button>
 
           <button
@@ -110,14 +110,14 @@ export const VaultView: React.FC<VaultViewProps> = ({
               setPrototypeConfirmation(false);
               onNavigate('/billetera/recargar');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'recargar'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <CirclePlus className="w-3.5 h-3.5" />
-            <span>Recargar saldo</span>
+            <CirclePlus className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Recargar</span>
           </button>
 
           <button
@@ -126,14 +126,14 @@ export const VaultView: React.FC<VaultViewProps> = ({
               setActiveTab('historial');
               onNavigate('/billetera/historial');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'historial'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <History className="w-3.5 h-3.5" />
-            <span>Historial</span>
+            <History className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Historial</span>
           </button>
         </div>
       </div>
@@ -163,15 +163,15 @@ export const VaultView: React.FC<VaultViewProps> = ({
       {/* 01. PRINCIPAL BALANCES (Always visible at top of Vault) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* NØBYTE Balance Card */}
-        <article className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 flex flex-col justify-between gap-6">
-          <div className="flex items-start justify-between gap-4">
+        <article className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 flex flex-col justify-between gap-5 sm:gap-6">
+          <div className="flex items-start justify-between gap-3 sm:gap-4">
             <div className="space-y-1.5">
               <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider">
                 BALANCE NØBYTE · MONEDA EDUCATIVA
               </div>
-              <div className="text-3xl md:text-4xl font-bold font-mono text-white tabular-nums">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-white tabular-nums">
                 {byteBalance.toLocaleString('es-ES')}{' '}
-                <span className="text-lg font-normal text-[#A3A3A3]">NØBYTE</span>
+                <span className="text-base sm:text-lg font-normal text-[#A3A3A3]">NØBYTE</span>
               </div>
               <p className="text-xs text-[#A3A3A3] leading-relaxed max-w-md pt-1">
                 Obtenida al completar Métodos, módulos, laboratorios CLI y
@@ -180,8 +180,8 @@ export const VaultView: React.FC<VaultViewProps> = ({
               </p>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[#111111] border border-[#2E2E2E] shrink-0">
-              <ByteIcon size={64} animated variant="detailed" />
+            <div className="p-2.5 sm:p-3.5 rounded-2xl bg-[#111111] border border-[#2E2E2E] shrink-0">
+              <ByteIcon size={52} animated variant="detailed" />
             </div>
           </div>
 
@@ -223,15 +223,15 @@ export const VaultView: React.FC<VaultViewProps> = ({
         </article>
 
         {/* NØCORE Balance Card */}
-        <article className="rounded-2xl bg-[#0A0A0A] border border-[#525252] p-6 flex flex-col justify-between gap-6">
-          <div className="flex items-start justify-between gap-4">
+        <article className="rounded-2xl bg-[#0A0A0A] border border-[#525252] p-4 sm:p-6 flex flex-col justify-between gap-5 sm:gap-6">
+          <div className="flex items-start justify-between gap-3 sm:gap-4">
             <div className="space-y-1.5">
               <div className="text-xs font-mono text-white uppercase tracking-wider">
                 BALANCE NØCORE · MONEDA PREMIUM
               </div>
-              <div className="text-3xl md:text-4xl font-bold font-mono text-white tabular-nums">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-white tabular-nums">
                 {coreBalance.toLocaleString('es-ES')}{' '}
-                <span className="text-lg font-normal text-[#A3A3A3]">NØCORE</span>
+                <span className="text-base sm:text-lg font-normal text-[#A3A3A3]">NØCORE</span>
               </div>
               <p className="text-xs text-[#A3A3A3] leading-relaxed max-w-md pt-1">
                 Crédito interno de alto valor para acceder a Métodos premium,
@@ -239,8 +239,8 @@ export const VaultView: React.FC<VaultViewProps> = ({
               </p>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#737373] shrink-0">
-              <CoreIcon size={64} animated variant="detailed" />
+            <div className="p-2.5 sm:p-3.5 rounded-2xl bg-[#141414] border border-[#737373] shrink-0">
+              <CoreIcon size={52} animated variant="detailed" />
             </div>
           </div>
 
@@ -624,7 +624,7 @@ export const VaultView: React.FC<VaultViewProps> = ({
 
       {/* TAB 3: MOVEMENT HISTORY (/billetera/historial) */}
       {activeTab === 'historial' && (
-        <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-5">
+        <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div className="text-xs font-mono text-[#737373] uppercase">
@@ -635,13 +635,13 @@ export const VaultView: React.FC<VaultViewProps> = ({
               </h2>
             </div>
 
-            <div className="flex items-center gap-1.5">
+            <div className="grid grid-cols-3 sm:flex items-center gap-1.5 w-full sm:w-auto">
               {(['ALL', 'NOBYTE', 'NOCORE'] as const).map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setHistoryFilter(f)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono cursor-pointer text-center ${
                     historyFilter === f
                       ? 'bg-white text-black font-semibold'
                       : 'bg-[#121212] text-[#A3A3A3] border border-[#2E2E2E]'

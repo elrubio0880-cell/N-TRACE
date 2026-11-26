@@ -301,7 +301,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
           <div className="text-xs font-mono text-[#737373] uppercase mb-1">
             NØTRACE TOOLKIT // CRYPTO LAB
           </div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Laboratorio de Criptografía e Integridad Local
           </h1>
           <p className="text-sm text-[#A3A3A3] mt-1 max-w-2xl">
@@ -313,8 +313,8 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Tool 1: Hash Generator & Comparator */}
-          <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-4">
-            <div className="flex items-center justify-between">
+          <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <span className="nt-icon-tile">
                   <Hash className="w-4 h-4 text-white" />
@@ -333,7 +333,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
                 aria-label="Algoritmo Hash"
                 value={hashAlgo}
                 onChange={(e) => setHashAlgo(e.target.value as any)}
-                className="nt-input w-auto text-xs py-1.5"
+                className="nt-input w-full sm:w-auto text-xs py-1.5"
               >
                 <option value="SHA-256">SHA-256</option>
                 <option value="SHA-384">SHA-384</option>
@@ -409,8 +409,8 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
 
           {/* Tool 2: High-Entropy Password Generator & Base64 Toolkit */}
           <div className="space-y-6">
-            <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-4">
-              <div className="flex items-center justify-between">
+            <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2.5">
                   <span className="nt-icon-tile">
                     <KeyRound className="w-4 h-4 text-white" />
@@ -456,8 +456,8 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-[#A3A3A3]">
-                <label className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-3 sm:gap-4 text-xs text-[#A3A3A3]">
+                <label className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
                   <span>Longitud: {pwdLength} caracteres</span>
                   <input
                     type="range"
@@ -465,6 +465,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
                     max={48}
                     value={pwdLength}
                     onChange={(e) => setPwdLength(Number(e.target.value))}
+                    className="w-full sm:w-36"
                   />
                 </label>
 
@@ -480,8 +481,8 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
             </section>
 
             {/* Base64 Toolkit */}
-            <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-4">
-              <div className="flex items-center justify-between">
+            <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
                   <span className="nt-icon-tile">
                     <Binary className="w-4 h-4 text-white" />
@@ -562,7 +563,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
           <div className="text-xs font-mono text-[#737373] uppercase mb-1">
             NØTRACE TOOLKIT // NETWORK LAB
           </div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Laboratorio de Redes y Segmentación IPv4
           </h1>
           <p className="text-sm text-[#A3A3A3] mt-1 max-w-2xl">
@@ -572,7 +573,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <section className="lg:col-span-6 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-5">
+          <section className="lg:col-span-6 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-5">
             <div className="flex items-center gap-2.5">
               <span className="nt-icon-tile">
                 <Calculator className="w-4 h-4 text-white" />
@@ -614,34 +615,34 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
             </div>
 
             {subnetDetails ? (
-              <dl className="grid grid-cols-2 gap-3 pt-2 text-xs">
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-2 text-xs">
                 <div className="p-3 rounded-lg bg-[#121212] border border-[#2E2E2E]">
                   <dt className="text-[#737373]">Bloque de Red</dt>
-                  <dd className="font-mono text-sm font-semibold text-white mt-0.5">
+                  <dd className="font-mono text-sm font-semibold text-white mt-0.5 break-all">
                     {subnetDetails.network}
                   </dd>
                 </div>
                 <div className="p-3 rounded-lg bg-[#121212] border border-[#2E2E2E]">
                   <dt className="text-[#737373]">Máscara Decimal</dt>
-                  <dd className="font-mono text-sm font-semibold text-white mt-0.5">
+                  <dd className="font-mono text-sm font-semibold text-white mt-0.5 break-all">
                     {subnetDetails.netmask}
                   </dd>
                 </div>
                 <div className="p-3 rounded-lg bg-[#121212] border border-[#2E2E2E]">
                   <dt className="text-[#737373]">Primer Host Útil</dt>
-                  <dd className="font-mono text-sm text-white mt-0.5">
+                  <dd className="font-mono text-sm text-white mt-0.5 break-all">
                     {subnetDetails.firstHost}
                   </dd>
                 </div>
                 <div className="p-3 rounded-lg bg-[#121212] border border-[#2E2E2E]">
                   <dt className="text-[#737373]">Último Host Útil</dt>
-                  <dd className="font-mono text-sm text-white mt-0.5">
+                  <dd className="font-mono text-sm text-white mt-0.5 break-all">
                     {subnetDetails.lastHost}
                   </dd>
                 </div>
                 <div className="p-3 rounded-lg bg-[#121212] border border-[#2E2E2E]">
                   <dt className="text-[#737373]">Dirección Broadcast</dt>
-                  <dd className="font-mono text-sm text-white mt-0.5">
+                  <dd className="font-mono text-sm text-white mt-0.5 break-all">
                     {subnetDetails.broadcast}
                   </dd>
                 </div>
@@ -659,7 +660,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
             )}
           </section>
 
-          <section className="lg:col-span-6 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 flex flex-col justify-between space-y-4">
+          <section className="lg:col-span-6 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="text-xs font-mono text-[#737373]">
                 REGLA NFTABLES GENERADA PARA ESTE BLOQUE
@@ -673,7 +674,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
               </p>
             </div>
 
-            <pre className="p-4 rounded-lg bg-[#000000] border border-[#2E2E2E] font-mono text-xs text-white overflow-x-auto">
+            <pre className="p-3.5 sm:p-4 rounded-lg bg-[#000000] border border-[#2E2E2E] font-mono text-xs text-white overflow-x-auto">
               <code>
                 {`table inet notrace_segment {\n  chain forward {\n    ip saddr ${
                   subnetDetails?.network || '10.14.88.0/24'
@@ -683,14 +684,14 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
               </code>
             </pre>
 
-            <div className="flex items-center justify-between pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
               <span className="text-xs text-[#737373]">
                 ¿Quieres verificar tu salida de red pública actual?
               </span>
               <button
                 type="button"
                 onClick={() => onNavigate('/herramientas/vpn-inspector')}
-                className="nt-btn nt-btn--sm text-xs"
+                className="nt-btn nt-btn--sm text-xs w-full sm:w-auto justify-center"
               >
                 <span>Abrir VPN Inspector →</span>
               </button>
@@ -925,13 +926,13 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
 
       {/* Filter Bar */}
       <div className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           {LAB_CATEGORIES.map((lab) => (
             <button
               key={lab}
               type="button"
               onClick={() => setSelectedLab(lab)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedLab === lab
                   ? 'bg-white text-black'
                   : 'bg-[#121212] text-[#A3A3A3] hover:text-white border border-[#2E2E2E]'
@@ -995,7 +996,7 @@ export const ToolkitView: React.FC<ToolkitViewProps> = ({
                 </div>
               </div>
 
-              <div className="pt-3.5 border-t border-[#1F1F1F] flex items-center justify-between gap-3">
+              <div className="pt-3.5 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-3">
                 <div>
                   {tool.tier === 'Gratuita' ? (
                     <span className="text-xs font-mono text-white">

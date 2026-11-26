@@ -65,7 +65,7 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
           <div className="text-xs font-mono text-[#737373] uppercase tracking-wider mb-1">
             NØTRACE OPERATIONS // PROGRESIÓN Y ACTIVIDADES
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
             Misiones, Recompensas y Eventos
           </h1>
           <p className="text-sm text-[#A3A3A3] mt-2 max-w-2xl">
@@ -77,21 +77,21 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
         </div>
 
         {/* Section Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E]">
+        <div className="grid grid-cols-3 sm:flex items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] w-full lg:w-auto">
           <button
             type="button"
             onClick={() => {
               setActiveTab('misiones');
               onNavigate('/misiones');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'misiones'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <Target className="w-3.5 h-3.5" />
-            <span>Misiones</span>
+            <Target className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Misiones</span>
           </button>
 
           <button
@@ -100,14 +100,14 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
               setActiveTab('recompensas');
               onNavigate('/recompensas');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'recompensas'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <Gift className="w-3.5 h-3.5" />
-            <span>Recompensas y Rangos</span>
+            <Gift className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Rangos</span>
           </button>
 
           <button
@@ -116,14 +116,14 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
               setActiveTab('eventos');
               onNavigate('/eventos');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'eventos'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Eventos y Retos</span>
+            <Calendar className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Eventos</span>
           </button>
         </div>
       </div>
@@ -158,7 +158,7 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
         <div className="space-y-6">
           {/* Status Filter Bar */}
           {activeTab === 'misiones' && (
-            <div className="flex flex-wrap items-center gap-1.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
               {[
                 'Todas',
                 'Disponible',
@@ -171,7 +171,7 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
                   key={st}
                   type="button"
                   onClick={() => setStatusFilter(st)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-colors ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-colors whitespace-nowrap shrink-0 ${
                     statusFilter === st
                       ? 'bg-white text-black'
                       : 'bg-[#0A0A0A] text-[#A3A3A3] border border-[#2E2E2E] hover:text-white'
@@ -199,10 +199,10 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
               return (
                 <article
                   key={mission.id}
-                  className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-5 flex flex-col justify-between gap-4"
+                  className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-5 flex flex-col justify-between gap-4"
                 >
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between gap-2 text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
                       <div className="flex items-center gap-2 text-[#A3A3A3]">
                         <span className="font-mono text-white">
                           {mission.type}
@@ -257,7 +257,7 @@ export const OperationsView: React.FC<OperationsViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="pt-3.5 border-t border-[#1F1F1F] flex items-center justify-between gap-3">
+                  <div className="pt-3.5 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <CurrencyAmount
                         currency={mission.rewardCurrency}

@@ -488,7 +488,7 @@ body.nt-theme {
     linear-gradient(180deg, #070707, #040404);
   overflow: hidden;
   user-select: none;
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .vpn-inspector #map {
@@ -962,6 +962,15 @@ body.nt-theme {
   .vpn-inspector .kv dd {
     overflow-wrap: anywhere;
     max-width: 62%;
+  }
+  .vpn-inspector .loghead {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .vpn-inspector .entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
 

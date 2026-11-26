@@ -449,7 +449,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
                       key={tier.id}
                       type="button"
                       onClick={() => onChangeQuality(tier.id)}
-                      className={`nt-btn text-xs ${
+                      className={`nt-btn px-2 py-2 text-[11px] sm:text-xs justify-center ${
                         quality === tier.id ? 'nt-btn--primary' : ''
                       }`}
                     >
@@ -467,12 +467,12 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-[#1E1E1E] flex items-center justify-between">
+              <div className="pt-2 border-t border-[#1E1E1E] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-[#A3A3A3]">Secuencia de arranque ASCII</span>
                 <button
                   type="button"
                   onClick={onOpenLoaderPreview}
-                  className="nt-btn text-xs"
+                  className="nt-btn text-xs w-full sm:w-auto justify-center"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>Previsualizar animación de carga</span>
@@ -511,14 +511,14 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
         <button
           type="button"
           onClick={() => onNavigate('/billetera')}
-          className="nt-btn text-xs"
+          className="nt-btn text-xs w-full md:w-auto justify-center"
         >
           Volver a NØTRACE Vault
         </button>
       </section>
 
       {/* Module Tabs (Section 27) */}
-      <div className="flex flex-wrap gap-2 border-b border-[#1A1A1A] pb-4">
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 -mx-1 px-1 sm:flex-wrap sm:overflow-visible border-b border-[#1A1A1A]">
         {(
           [
             { id: 'general', label: 'Configuración general' },
@@ -536,7 +536,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
             key={tab.id}
             type="button"
             onClick={() => setActiveAdminTab(tab.id)}
-            className={`nt-btn text-xs ${
+            className={`nt-btn text-xs whitespace-nowrap shrink-0 ${
               activeAdminTab === tab.id ? 'nt-btn--primary' : 'nt-btn--ghost'
             }`}
           >
@@ -640,7 +640,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
                 {OPERATIONS_MISSIONS.map((m) => (
                   <div
                     key={m.id}
-                    className="p-3.5 rounded-lg bg-[#050505] border border-[#1E1E1E] flex items-center justify-between gap-4 text-xs"
+                    className="p-3.5 rounded-lg bg-[#050505] border border-[#1E1E1E] flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 text-xs"
                   >
                     <div>
                       <div className="text-white font-medium">{m.title}</div>

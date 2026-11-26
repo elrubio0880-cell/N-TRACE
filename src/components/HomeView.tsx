@@ -401,7 +401,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <button
             type="button"
             onClick={() => onNavigate('/herramientas')}
-            className="nt-btn text-xs"
+            className="nt-btn text-xs w-full sm:w-auto justify-center"
           >
             <span>Explorar todas las herramientas</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -480,7 +480,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <button
             type="button"
             onClick={() => onNavigate('/billetera')}
-            className="nt-btn text-xs"
+            className="nt-btn text-xs w-full sm:w-auto justify-center"
           >
             <Wallet className="w-3.5 h-3.5" />
             <span>Abrir NØTRACE VAULT</span>
@@ -489,8 +489,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {/* NØBYTE Card */}
-          <article className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 flex flex-col justify-between gap-5">
-            <div className="flex items-start justify-between gap-4">
+          <article className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 flex flex-col justify-between gap-5">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="space-y-2">
                 <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider">
                   MONEDA EDUCATIVA Y DE PARTICIPACIÓN
@@ -504,8 +504,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   completando Métodos, módulos, evaluaciones y misiones.
                 </p>
               </div>
-              <div className="shrink-0 p-3 rounded-xl bg-[#111111] border border-[#2E2E2E]">
-                <ByteIcon size={56} animated variant="detailed" />
+              <div className="shrink-0 p-2.5 sm:p-3 rounded-xl bg-[#111111] border border-[#2E2E2E]">
+                <ByteIcon size={48} animated variant="detailed" />
               </div>
             </div>
 
@@ -528,8 +528,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </article>
 
           {/* NØCORE Card */}
-          <article className="rounded-xl bg-[#0A0A0A] border border-[#404040] p-6 flex flex-col justify-between gap-5">
-            <div className="flex items-start justify-between gap-4">
+          <article className="rounded-xl bg-[#0A0A0A] border border-[#404040] p-4 sm:p-6 flex flex-col justify-between gap-5">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="space-y-2">
                 <div className="text-xs font-mono text-white uppercase tracking-wider">
                   MONEDA PREMIUM E INFRAESTRUCTURA
@@ -543,8 +543,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   laboratorios avanzados y recursos con mayor costo operativo.
                 </p>
               </div>
-              <div className="shrink-0 p-3 rounded-xl bg-[#141414] border border-[#525252]">
-                <CoreIcon size={56} animated variant="detailed" />
+              <div className="shrink-0 p-2.5 sm:p-3 rounded-xl bg-[#141414] border border-[#525252]">
+                <CoreIcon size={48} animated variant="detailed" />
               </div>
             </div>
 
@@ -585,7 +585,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <button
             type="button"
             onClick={() => onNavigate('/misiones')}
-            className="nt-btn text-xs"
+            className="nt-btn text-xs w-full sm:w-auto justify-center"
           >
             <Target className="w-3.5 h-3.5" />
             <span>Ver todas las operaciones</span>
@@ -601,7 +601,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
               >
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-xs text-[#737373]">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#737373]">
                     <span className="text-[#A3A3A3] font-medium">
                       {mission.type}
                     </span>
@@ -615,7 +615,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <h3 className="text-sm font-semibold text-white">
                     {mission.title}
                   </h3>
-                  <p className="text-xs text-[#A3A3A3] line-clamp-1">
+                  <p className="text-xs text-[#A3A3A3] line-clamp-2 sm:line-clamp-1">
                     {mission.description}
                   </p>
                 </div>
@@ -678,7 +678,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#1F1F1F] flex items-center justify-between text-xs text-[#A3A3A3]">
+            <div className="pt-3 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-2 text-xs text-[#A3A3A3]">
               <span>Rangos 01 — INITIATE hasta 07 — ZERO</span>
               <button
                 type="button"
@@ -694,7 +694,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* 06. SOBRE NØTRACE */}
       <section className="nt-section" id="sobre-notrace">
-        <div className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-5 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
             <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider">
               SOBRE NØTRACE // ÉTICA Y TECNOLOGÍA
@@ -710,11 +710,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
               desarrollar habilidades reales en entornos responsables y
               autorizados.
             </p>
-            <div className="pt-2 flex flex-wrap items-center gap-3">
+            <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
               <button
                 type="button"
                 onClick={() => onNavigate('/nosotros')}
-                className="nt-btn text-xs"
+                className="nt-btn text-xs justify-center"
               >
                 <Compass className="w-3.5 h-3.5" />
                 <span>Conocer nuestra filosofía y metodología</span>
@@ -722,7 +722,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('/ayuda')}
-                className="nt-btn nt-btn--ghost text-xs"
+                className="nt-btn nt-btn--ghost text-xs justify-center"
               >
                 <span>Centro de ayuda</span>
               </button>
@@ -768,7 +768,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* 07. LLAMADA A LA ACCIÓN FINAL */}
       <section className="nt-section">
-        <div className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-8 md:p-12 text-center space-y-5">
+        <div className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-5 sm:p-8 md:p-12 text-center space-y-5">
           <div className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider">
             COMIENZA TU FORMACIÓN EN NØTRACE
           </div>
@@ -780,11 +780,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
             cartografía real o crea tu cuenta de estudiante para registrar tu
             progreso en el Campus.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 pt-2">
             <button
               type="button"
               onClick={() => onNavigate('/registro')}
-              className="nt-btn nt-btn--primary"
+              className="nt-btn nt-btn--primary justify-center"
             >
               <span>Crear cuenta</span>
               <ArrowRight className="w-4 h-4" />
@@ -792,7 +792,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('/metodos')}
-              className="nt-btn"
+              className="nt-btn justify-center"
             >
               <span>Explorar métodos</span>
             </button>

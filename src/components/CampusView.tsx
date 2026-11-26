@@ -141,14 +141,14 @@ export const CampusView: React.FC<CampusViewProps> = ({
   };
 
   return (
-    <main className="py-8 space-y-8" aria-label="NØTRACE Campus">
+    <main className="py-5 sm:py-8 space-y-6 sm:space-y-8" aria-label="NØTRACE Campus">
       {/* Header & Campus Sub-navigation */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#1F1F1F]">
         <div>
           <div className="text-xs font-mono text-[#737373] uppercase tracking-wider mb-1">
             NØTRACE CAMPUS // ENTORNO DE APRENDIZAJE PRÁCTICO
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
             Campus Virtual y Laboratorios
           </h1>
           <p className="text-sm text-[#A3A3A3] mt-2 max-w-2xl">
@@ -157,21 +157,21 @@ export const CampusView: React.FC<CampusViewProps> = ({
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] w-full lg:w-auto">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] w-full lg:w-auto">
           <button
             type="button"
             onClick={() => {
               setActiveTab('methods');
               onNavigate('/campus');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2.5 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'methods'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <GraduationCap className="w-3.5 h-3.5" />
-            <span>Mis Métodos & Aula</span>
+            <GraduationCap className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Mis Métodos & Aula</span>
           </button>
 
           <button
@@ -180,14 +180,14 @@ export const CampusView: React.FC<CampusViewProps> = ({
               setActiveTab('laboratorios');
               setPlayerMode('lab');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2.5 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'laboratorios'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <FlaskConical className="w-3.5 h-3.5" />
-            <span>Laboratorios CLI</span>
+            <FlaskConical className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Laboratorios CLI</span>
           </button>
 
           <button
@@ -196,27 +196,27 @@ export const CampusView: React.FC<CampusViewProps> = ({
               setActiveTab('progreso');
               onNavigate('/campus/progreso');
             }}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2.5 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'progreso'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <ChartNoAxesColumn className="w-3.5 h-3.5" />
-            <span>Progreso</span>
+            <ChartNoAxesColumn className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Progreso</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('certificados')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer transition-colors ${
+            className={`px-2.5 sm:px-3.5 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer transition-colors ${
               activeTab === 'certificados'
                 ? 'bg-white text-black'
                 : 'text-[#A3A3A3] hover:text-white'
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
-            <span>Certificados</span>
+            <Award className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Certificados</span>
           </button>
         </div>
       </div>
@@ -226,7 +226,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
         <div className="space-y-8">
           {/* Enrolled / Available Methods Switcher Strip */}
           <div className="space-y-3">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-mono text-[#A3A3A3] uppercase">
                 SELECCIONA UN MÉTODO PARA ABRIR EN EL AULA VIRTUAL
               </span>
@@ -281,7 +281,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
           </div>
 
           {/* Interactive Classroom Console & CLI Laboratory */}
-          <section className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-6">
+          <section className="rounded-2xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-[#1F1F1F]">
               <div>
                 <div className="flex flex-wrap items-center gap-2 text-xs text-[#A3A3A3]">
@@ -293,23 +293,23 @@ export const CampusView: React.FC<CampusViewProps> = ({
                   <span aria-hidden="true">·</span>
                   <span>Recompensa: +{selectedMethod.rewardByte} NØBYTE</span>
                 </div>
-                <h2 className="text-xl font-bold text-white mt-1">
+                <h2 className="text-lg sm:text-xl font-bold text-white mt-1">
                   {selectedMethod.title}
                 </h2>
               </div>
 
-              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#121212] border border-[#2E2E2E] self-start">
+              <div className="grid grid-cols-2 sm:flex items-center gap-1.5 p-1 rounded-xl bg-[#121212] border border-[#2E2E2E] w-full sm:w-auto self-start">
                 <button
                   type="button"
                   onClick={() => setPlayerMode('lesson')}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer ${
                     playerMode === 'lesson'
                       ? 'bg-white text-black'
                       : 'text-[#A3A3A3] hover:text-white'
                   }`}
                 >
-                  <Play className="w-3.5 h-3.5" />
-                  <span>Lección y Documentación</span>
+                  <Play className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">Lección y Docs</span>
                 </button>
                 <button
                   type="button"
@@ -317,14 +317,14 @@ export const CampusView: React.FC<CampusViewProps> = ({
                     setPlayerMode('lab');
                     setCliInput(selectedMethod.courseRef.lab.expectedCommand);
                   }}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer ${
                     playerMode === 'lab'
                       ? 'bg-white text-black'
                       : 'text-[#A3A3A3] hover:text-white'
                   }`}
                 >
-                  <TerminalIcon className="w-3.5 h-3.5" />
-                  <span>Laboratorio CLI</span>
+                  <TerminalIcon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">Laboratorio CLI</span>
                 </button>
               </div>
             </div>
@@ -420,11 +420,11 @@ export const CampusView: React.FC<CampusViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#1F1F1F] flex items-center justify-between gap-3">
+                  <div className="pt-4 border-t border-[#1F1F1F] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
                     <button
                       type="button"
                       onClick={() => onSelectMethodDetail(selectedMethod)}
-                      className="nt-btn nt-btn--sm text-xs"
+                      className="nt-btn nt-btn--sm text-xs justify-center"
                     >
                       <BookOpen className="w-3.5 h-3.5" />
                       <span>Ficha del Método</span>
@@ -438,7 +438,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
                           selectedMethod.courseRef.lab.expectedCommand
                         );
                       }}
-                      className="nt-btn nt-btn--primary nt-btn--sm text-xs"
+                      className="nt-btn nt-btn--primary nt-btn--sm text-xs justify-center"
                     >
                       <span>Ejecutar Laboratorio</span>
                       <ArrowRight className="w-3.5 h-3.5" />

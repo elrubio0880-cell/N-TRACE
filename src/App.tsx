@@ -1004,24 +1004,24 @@ export default function App() {
         {/* Conceptual Method Acquisition Modal */}
         {unlockModalMethod && (
           <div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4"
             role="dialog"
             aria-modal="true"
           >
-            <div className="max-w-lg w-full rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-5 shadow-2xl">
+            <div className="max-w-lg w-full rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4 sm:space-y-5 shadow-2xl">
               <div className="flex items-start justify-between gap-4 border-b border-[#1E1E1E] pb-4">
                 <div>
                   <span className="nt-mono text-[11px] text-[#737373]">
                     // DEMOSTRACIÓN CONCEPTUAL DE DESBLOQUEO
                   </span>
-                  <h3 className="text-lg font-bold text-white mt-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white mt-1">
                     {unlockModalMethod.title}
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={() => setUnlockModalMethod(null)}
-                  className="text-[#737373] hover:text-white"
+                  className="text-[#737373] hover:text-white p-1"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -1033,7 +1033,7 @@ export default function App() {
                 esta fase de demostración.
               </p>
 
-              <div className="grid grid-cols-2 gap-3 p-3.5 rounded-lg bg-[#050505] border border-[#1E1E1E]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 rounded-lg bg-[#050505] border border-[#1E1E1E]">
                 <div>
                   <div className="text-[11px] text-[#737373] mb-1">Valor del Método</div>
                   <CurrencyAmount
@@ -1052,21 +1052,21 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-end gap-2.5 pt-2">
+              <div className="flex flex-col-reverse sm:flex-row flex-wrap items-stretch sm:items-center justify-end gap-2.5 pt-2">
                 <button
                   type="button"
                   onClick={() => {
                     setUnlockModalMethod(null);
                     navigate('/billetera');
                   }}
-                  className="nt-btn nt-btn--ghost text-xs"
+                  className="nt-btn nt-btn--ghost text-xs justify-center"
                 >
                   Ver Billetera Vault
                 </button>
                 <button
                   type="button"
                   onClick={() => handleConfirmConceptualUnlock(unlockModalMethod)}
-                  className="nt-btn nt-btn--primary text-xs"
+                  className="nt-btn nt-btn--primary text-xs justify-center"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Abrir Método en Campus (Demo)</span>
@@ -1077,9 +1077,9 @@ export default function App() {
         )}
 
         {/* Global Ecosystem Footer */}
-        <footer className="mt-16 pt-10 pb-8 border-t border-[#171717] text-xs text-[#8A8A8A] space-y-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-            <div className="lg:col-span-2 space-y-3">
+        <footer className="mt-10 sm:mt-16 pt-8 sm:pt-10 pb-6 sm:pb-8 border-t border-[#171717] text-xs text-[#8A8A8A] space-y-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+            <div className="col-span-2 lg:col-span-2 space-y-3">
               <div className="flex items-center gap-2 text-white font-bold text-sm">
                 <svg className="nt-icon" aria-hidden="true">
                   <use href="#terminal" />

@@ -144,7 +144,7 @@ export const AuthGateway: React.FC<AuthGatewayProps> = ({
         </div>
 
         {/* Mode Switcher */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="grid grid-cols-3 sm:flex sm:flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => {
@@ -152,7 +152,9 @@ export const AuthGateway: React.FC<AuthGatewayProps> = ({
               setStatusType('neutral');
               setStatusMessage('Introduce tus credenciales para iniciar sesión.');
             }}
-            className={`nt-btn ${mode === 'login' ? 'nt-btn--primary' : 'nt-btn--ghost'}`}
+            className={`nt-btn px-2 sm:px-3.5 text-xs justify-center ${
+              mode === 'login' ? 'nt-btn--primary' : 'nt-btn--ghost'
+            }`}
           >
             Iniciar sesión
           </button>
@@ -163,7 +165,9 @@ export const AuthGateway: React.FC<AuthGatewayProps> = ({
               setStatusType('neutral');
               setStatusMessage('Completa tus datos para crear una cuenta académica.');
             }}
-            className={`nt-btn ${mode === 'register' ? 'nt-btn--primary' : 'nt-btn--ghost'}`}
+            className={`nt-btn px-2 sm:px-3.5 text-xs justify-center ${
+              mode === 'register' ? 'nt-btn--primary' : 'nt-btn--ghost'
+            }`}
           >
             Crear cuenta
           </button>
@@ -174,7 +178,9 @@ export const AuthGateway: React.FC<AuthGatewayProps> = ({
               setStatusType('neutral');
               setStatusMessage('Indica tu correo registrado para recuperar tu contraseña.');
             }}
-            className={`nt-btn ${mode === 'recovery' ? 'nt-btn--primary' : 'nt-btn--ghost'}`}
+            className={`nt-btn px-2 sm:px-3.5 text-xs justify-center ${
+              mode === 'recovery' ? 'nt-btn--primary' : 'nt-btn--ghost'
+            }`}
           >
             Recuperar
           </button>
