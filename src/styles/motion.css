@@ -301,10 +301,125 @@
   }
 }
 
+/* ==========================================================================
+   ECOSYSTEM COMMAND MENU OVERLAY (60FPS OPEN/CLOSE + BACKDROP BLUR)
+   ========================================================================== */
+
+.nt-menu-overlay {
+  position: fixed;
+  inset: 0;
+  top: 76px;
+  z-index: 48;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 320ms;
+}
+
+.nt-menu-overlay.is-open {
+  pointer-events: auto;
+  visibility: visible;
+  transition: visibility 0s linear 0s;
+}
+
+.nt-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(16px) saturate(110%);
+  -webkit-backdrop-filter: blur(16px) saturate(110%);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nt-menu-overlay.is-open .nt-menu-backdrop {
+  opacity: 1;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nt-menu-shell {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 48px));
+  margin: 12px auto 0;
+  max-height: calc(100dvh - 100px);
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.nt-menu-panel {
+  pointer-events: auto;
+  width: 100%;
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(10, 10, 10, 0.94);
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.88),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  opacity: 0;
+  transform: translate3d(0, -16px, 0) scale(0.982);
+  transform-origin: top center;
+  will-change: transform, opacity;
+  transition:
+    opacity 230ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nt-menu-overlay.is-open .nt-menu-panel {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity 340ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nt-menu-col {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.nt-menu-overlay.is-open .nt-menu-col {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--col-delay, 40ms);
+}
+
+@media (max-width: 640px) {
+  .nt-menu-overlay {
+    top: 64px;
+  }
+  .nt-menu-shell {
+    width: calc(100% - 20px);
+    margin: 8px auto 0;
+    max-height: calc(100dvh - 76px);
+  }
+  .nt-menu-panel {
+    max-height: calc(100dvh - 76px);
+    border-radius: 14px;
+  }
+  .nt-loader-art-wrap {
+    min-height: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nt-core-ring,
   .nt-byte-blocks,
   .nt-reveal,
+  .nt-menu-backdrop,
+  .nt-menu-panel,
+  .nt-menu-col,
   .nt-shell.is-boot-entering .nt-nav,
   .nt-shell.is-boot-entering .nt-boot-stage-1,
   .nt-shell.is-boot-entering .nt-boot-stage-2,
@@ -314,6 +429,7 @@
   .nt-shell.is-boot-entering .nt-boot-art-stage,
   .nt-shell.is-boot-entering .nt-boot-art-stage::before {
     animation: none !important;
+    transition: none !important;
     opacity: 1 !important;
     transform: none !important;
   }

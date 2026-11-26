@@ -157,7 +157,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E]">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] w-full lg:w-auto">
           <button
             type="button"
             onClick={() => {
@@ -532,18 +532,18 @@ export const CampusView: React.FC<CampusViewProps> = ({
                     className="mt-4 pt-3 border-t border-[#2E2E2E] flex items-center gap-2"
                   >
                     <span className="text-[#737373] shrink-0">
-                      operator@notrace-campus:~$
+                      <span className="hidden sm:inline">operator@notrace-campus:~</span>$
                     </span>
                     <input
                       type="text"
                       value={cliInput}
                       onChange={(e) => setCliInput(e.target.value)}
                       aria-label="Consola de comandos del laboratorio"
-                      className="flex-1 bg-transparent text-white focus:outline-none"
+                      className="min-w-0 flex-1 bg-transparent text-white focus:outline-none"
                     />
                     <button
                       type="submit"
-                      className="nt-btn nt-btn--primary nt-btn--sm text-xs"
+                      className="nt-btn nt-btn--primary nt-btn--sm text-xs shrink-0"
                     >
                       Ejecutar
                     </button>

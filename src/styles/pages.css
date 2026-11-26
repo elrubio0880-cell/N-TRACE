@@ -271,36 +271,65 @@ body.nt-theme {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .nt-shell {
-    width: calc(100% - 32px);
+    width: calc(100% - 28px);
   }
   .nt-nav {
     min-height: 64px;
+    gap: 8px;
   }
   .nt-brand {
-    font-size: 18px;
+    font-size: 17px;
+    gap: 7px;
   }
   .nt-nav-actions {
     gap: 6px;
+    flex-wrap: nowrap;
   }
   .nt-nav-actions .nt-btn {
     padding: 7px 10px;
-    min-height: 38px;
-    font-size: 13px;
+    min-height: 36px;
+    font-size: 12px;
   }
   .nt-hero h1 {
-    font-size: 40px;
+    font-size: clamp(34px, 9.5vw, 44px);
+  }
+  .nt-hero p {
+    font-size: 14px;
+    line-height: 1.6;
   }
   .nt-hero {
-    padding: 28px 0;
+    padding: 26px 0 34px;
+  }
+  .nt-hero .nt-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .nt-hero .nt-actions .nt-btn:first-child {
+    grid-column: 1 / -1;
+  }
+  .nt-art-caption {
+    font-size: 9px;
+    padding: 10px 2px;
+    gap: 8px;
+  }
+  .nt-section {
+    padding: 28px 0 44px;
   }
   .nt-login {
     min-height: auto;
+    padding: 20px 0 36px;
+  }
+  .nt-form h1 {
+    font-size: 26px;
   }
   .nt-section-head {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
   }
   .nt-loader {
     padding: 14px;
@@ -900,16 +929,39 @@ body.nt-theme {
     align-items: flex-start;
     flex-direction: column;
   }
+  .vpn-inspector .modes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .vpn-inspector .mode {
+    text-align: center;
+    padding: 0 8px;
+  }
+  .vpn-inspector .maphead {
+    flex-wrap: wrap;
+  }
   .vpn-inspector .stats,
   .vpn-inspector .actions {
     grid-template-columns: 1fr;
   }
   .vpn-inspector .maparea {
-    min-height: 250px;
+    min-height: 230px;
+  }
+  .vpn-inspector .maplegend {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    gap: 8px;
+    font-size: 10px;
   }
   .vpn-inspector .mapfoot {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .vpn-inspector .kv dd {
+    overflow-wrap: anywhere;
+    max-width: 62%;
   }
 }
 

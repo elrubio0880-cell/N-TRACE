@@ -70,7 +70,23 @@ export default function App() {
   // Header UI modals/popovers
   const [notificationsOpen, setNotificationsOpen] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [menuGroupFilter, setMenuGroupFilter] = useState<
+    'all' | 'principal' | 'labs' | 'economia' | 'cuenta'
+  >('all');
   const [unlockModalMethod, setUnlockModalMethod] = useState<NotraceMethod | null>(null);
+
+  // Lock background page scroll while overlay menu is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   // Real initialization readiness promise
   useEffect(() => {
@@ -461,7 +477,10 @@ export default function App() {
                 <div className="relative">
                   <button
                     type="button"
-                    onClick={() => setNotificationsOpen((v) => !v)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setNotificationsOpen((v) => !v);
+                    }}
                     className={`nt-btn nt-btn--ghost px-2.5 py-1.5 relative ${
                       notificationsOpen ? 'border-[#525252] text-white' : ''
                     }`}
@@ -473,7 +492,7 @@ export default function App() {
                   </button>
 
                   {notificationsOpen && (
-                    <div className="absolute right-0 mt-2 w-80 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] shadow-2xl p-4 z-50 space-y-3">
+                    <div className="fixed left-3.5 right-3.5 top-[68px] sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-2 sm:w-80 rounded-xl bg-[#0A0A0A]/95 backdrop-blur-md border border-[#2E2E2E] shadow-2xl p-4 z-50 space-y-3">
                       <div className="flex items-center justify-between border-b border-[#1E1E1E] pb-2">
                         <span className="text-xs font-semibold text-white">
                           Centro de Operaciones
@@ -544,65 +563,438 @@ export default function App() {
                   onClick={() => navigate('/login')}
                   className="nt-btn text-xs"
                 >
-                  Iniciar sesión
-                </button>
-                <button
-                  type="button"
-                  onClick={() => navigate('/registro')}
-                  className="nt-btn nt-btn--primary text-xs hidden sm:inline-flex"
-                >
-                  Crear cuenta
+                  Acceso
                 </button>
               </>
             )}
 
-            {/* Mobile Menu Toggle */}
+            {/* Ecosystem Command Menu Toggle (3-line button, works on Desktop & Mobile) */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen((v) => !v)}
-              className="lg:hidden nt-btn nt-btn--ghost px-2.5 py-1.5"
-              aria-label="Abrir menú de navegación"
+              onClick={() => {
+                setNotificationsOpen(false);
+                setMobileMenuOpen((v) => !v);
+              }}
+              className={`nt-btn nt-btn--ghost px-2.5 py-1.5 ${
+                mobileMenuOpen ? 'bg-[#161616] border-[#404040] text-white' : ''
+              }`}
+              aria-label={
+                mobileMenuOpen
+                  ? 'Cerrar menú del ecosistema'
+                  : 'Abrir menú del ecosistema'
+              }
+              aria-expanded={mobileMenuOpen}
+              title="Menú completo del ecosistema NØTRACE"
             >
-              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileMenuOpen ? (
+                <X className="w-4 h-4 transition-transform duration-200 rotate-90" />
+              ) : (
+                <Menu className="w-4 h-4 transition-transform duration-200" />
+              )}
             </button>
           </div>
         </header>
 
-        {/* Mobile Drawer Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mb-6 p-4 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] space-y-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {[
-                { path: '/', label: 'Inicio', icon: Compass },
-                { path: '/metodos', label: 'Métodos', icon: BookOpen },
-                { path: '/herramientas', label: 'Herramientas', icon: Boxes },
-                { path: '/campus', label: 'Campus', icon: GraduationCap },
-                { path: '/billetera', label: 'Billetera Vault', icon: Wallet },
-                { path: '/misiones', label: 'Misiones y Rangos', icon: Target },
-                { path: '/nosotros', label: 'Nosotros', icon: Shield },
-                { path: '/ayuda', label: 'Centro de Ayuda', icon: HelpCircle },
-                { path: '/perfil', label: 'Perfil', icon: User },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
+        {/* Superimposed Ecosystem Command Menu Overlay (Smooth Open & Close + Backdrop Blur) */}
+        <div
+          className={`nt-menu-overlay ${mobileMenuOpen ? 'is-open' : ''}`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          {/* Blurred Surrounding Backdrop (click outside to close) */}
+          <div
+            className="nt-menu-backdrop"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Cerrar menú al hacer clic fuera"
+          />
+
+          {/* Floating Command Panel Container */}
+          <div className="nt-menu-shell">
+            <div
+              className="nt-menu-panel p-4 sm:p-6 space-y-5"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú completo del ecosistema NØTRACE"
+            >
+              {/* Top Status & Quick Actions Bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1E1E1E]">
+                <div className="flex flex-wrap items-center justify-between sm:justify-start gap-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <span className="nt-mono text-[11px] text-[#A3A3A3] tracking-wider">
+                      NØTRACE 3.0 // DIRECTORIO OPERATIVO
+                    </span>
+                  </div>
+                  <span className="text-[11px] px-2.5 py-1 rounded-md bg-[#141414] border border-[#2A2A2A] text-[#D4D4D4] truncate max-w-[220px] sm:max-w-none">
+                    {operator.isGuest
+                      ? 'Sesión: Invitado'
+                      : `${operator.alias} · ${operator.clearance}`}
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <CurrencyBadge
+                      currency="NOBYTE"
+                      amount={byteBalance}
+                      onClick={() => navigate('/billetera')}
+                    />
+                    <CurrencyBadge
+                      currency="NOCORE"
+                      amount={coreBalance}
+                      onClick={() => navigate('/billetera')}
+                    />
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setLoaderPreview(true);
+                        setLoaderOpen(true);
+                      }}
+                      className="nt-btn nt-btn--sm text-xs"
+                    >
+                      Boot ASCII
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="nt-btn nt-btn--sm nt-btn--ghost text-xs border border-[#262626]"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                      <span>Cerrar</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Quick-Filter Pill Bar (visible on mobile/tablet for fast navigation) */}
+              <div className="flex lg:hidden items-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1">
+                {[
+                  { id: 'all', label: 'Todo (22)' },
+                  { id: 'principal', label: 'Principal' },
+                  { id: 'labs', label: 'Labs en Vivo' },
+                  { id: 'economia', label: 'Vault & Misiones' },
+                  { id: 'cuenta', label: 'Cuenta & Sistema' },
+                ].map((tab) => (
                   <button
-                    key={item.path}
+                    key={tab.id}
                     type="button"
-                    onClick={() => navigate(item.path)}
-                    className={`flex items-center gap-2 p-2.5 rounded-lg text-xs font-medium text-left border ${
-                      isNavActive(item.path)
-                        ? 'bg-[#161616] text-white border-[#404040]'
-                        : 'bg-[#050505] text-[#A3A3A3] border-[#1A1A1A]'
+                    onClick={() => setMenuGroupFilter(tab.id as any)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors shrink-0 ${
+                      menuGroupFilter === tab.id
+                        ? 'bg-white text-black'
+                        : 'bg-[#121212] text-[#A3A3A3] border border-[#262626]'
                     }`}
                   >
-                    <Icon className="w-3.5 h-3.5 shrink-0" />
-                    <span>{item.label}</span>
+                    {tab.label}
                   </button>
-                );
-              })}
+                ))}
+              </div>
+
+              {/* 4-Column Categorized Directory of all 22 NØTRACE Routes */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {/* Group 1: Ecosistema Principal */}
+                <div
+                  className={`nt-menu-col space-y-2.5 ${
+                    menuGroupFilter !== 'all' && menuGroupFilter !== 'principal'
+                      ? 'hidden lg:block'
+                      : ''
+                  }`}
+                  style={{ '--col-delay': '35ms' } as React.CSSProperties}
+                >
+                  <div className="nt-mono text-[10px] text-[#737373] uppercase tracking-wider px-1">
+                    01 // Ecosistema Principal
+                  </div>
+                  <div className="space-y-1.5">
+                    {[
+                      {
+                        path: '/',
+                        label: 'Inicio',
+                        desc: 'Portada y centro operativo',
+                        icon: Compass,
+                      },
+                      {
+                        path: '/metodos',
+                        label: 'Catálogo de Métodos',
+                        desc: 'Sistemas y guías técnicas',
+                        icon: BookOpen,
+                      },
+                      {
+                        path: '/herramientas',
+                        label: 'Toolkit de Herramientas',
+                        desc: 'Suite de diagnóstico y red',
+                        icon: Boxes,
+                      },
+                      {
+                        path: '/campus',
+                        label: 'Campus Operativo',
+                        desc: 'Módulos y estudio activo',
+                        icon: GraduationCap,
+                      },
+                      {
+                        path: '/campus/progreso',
+                        label: 'Progreso de Estudio',
+                        desc: 'Métricas y certificaciones',
+                        icon: CheckCircle2,
+                      },
+                    ].map((item) => {
+                      const Icon = item.icon;
+                      const active = currentPath === item.path;
+                      return (
+                        <button
+                          key={item.path}
+                          type="button"
+                          onClick={() => navigate(item.path)}
+                          className={`w-full flex items-start gap-2.5 p-2.5 rounded-lg text-left border transition-colors ${
+                            active
+                              ? 'bg-[#181818] text-white border-[#4A4A4A]'
+                              : 'bg-[#070707] text-[#D4D4D4] border-[#1A1A1A] hover:border-[#363636] hover:bg-[#111111] hover:text-white'
+                          }`}
+                        >
+                          <Icon className="w-4 h-4 mt-0.5 shrink-0 text-[#A3A3A3]" />
+                          <div className="min-w-0">
+                            <div className="text-xs font-medium leading-tight">
+                              {item.label}
+                            </div>
+                            <div className="text-[11px] text-[#737373] truncate mt-0.5">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Group 2: Laboratorios Interactivos */}
+                <div
+                  className={`nt-menu-col space-y-2.5 ${
+                    menuGroupFilter !== 'all' && menuGroupFilter !== 'labs'
+                      ? 'hidden lg:block'
+                      : ''
+                  }`}
+                  style={{ '--col-delay': '70ms' } as React.CSSProperties}
+                >
+                  <div className="nt-mono text-[10px] text-[#737373] uppercase tracking-wider px-1">
+                    02 // Laboratorios en Vivo
+                  </div>
+                  <div className="space-y-1.5">
+                    {[
+                      {
+                        path: '/herramientas/vpn-inspector',
+                        label: 'VPN & IP Inspector',
+                        desc: 'Verificación real de IP y ASN',
+                      },
+                      {
+                        path: '/herramientas/privacy-lab',
+                        label: 'Privacy Lab',
+                        desc: 'Huella de navegador y WebRTC',
+                      },
+                      {
+                        path: '/herramientas/network-lab',
+                        label: 'Network Lab',
+                        desc: 'Subredes CIDR y firewall nftables',
+                      },
+                      {
+                        path: '/herramientas/crypto-lab',
+                        label: 'Crypto Lab',
+                        desc: 'Hashes SHA-256 y entropía local',
+                      },
+                    ].map((item) => {
+                      const active = currentPath === item.path;
+                      return (
+                        <button
+                          key={item.path}
+                          type="button"
+                          onClick={() => navigate(item.path)}
+                          className={`w-full flex items-start gap-2.5 p-2.5 rounded-lg text-left border transition-colors ${
+                            active
+                              ? 'bg-[#181818] text-white border-[#4A4A4A]'
+                              : 'bg-[#070707] text-[#D4D4D4] border-[#1A1A1A] hover:border-[#363636] hover:bg-[#111111] hover:text-white'
+                          }`}
+                        >
+                          <Boxes className="w-4 h-4 mt-0.5 shrink-0 text-[#A3A3A3]" />
+                          <div className="min-w-0">
+                            <div className="text-xs font-medium leading-tight">
+                              {item.label}
+                            </div>
+                            <div className="text-[11px] text-[#737373] truncate mt-0.5">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Group 3: Economía & Operaciones */}
+                <div
+                  className={`nt-menu-col space-y-2.5 ${
+                    menuGroupFilter !== 'all' && menuGroupFilter !== 'economia'
+                      ? 'hidden lg:block'
+                      : ''
+                  }`}
+                  style={{ '--col-delay': '105ms' } as React.CSSProperties}
+                >
+                  <div className="nt-mono text-[10px] text-[#737373] uppercase tracking-wider px-1">
+                    03 // Economía & Operaciones
+                  </div>
+                  <div className="space-y-1.5">
+                    {[
+                      {
+                        path: '/billetera',
+                        label: 'Billetera Vault',
+                        desc: 'Balances NØBYTE y NØCORE',
+                        icon: Wallet,
+                      },
+                      {
+                        path: '/billetera/recargar',
+                        label: 'Recargar NØCORE',
+                        desc: 'Paquetes conceptuales Vault',
+                        icon: Wallet,
+                      },
+                      {
+                        path: '/billetera/historial',
+                        label: 'Historial de Movimientos',
+                        desc: 'Registro auditable de unidades',
+                        icon: Wallet,
+                      },
+                      {
+                        path: '/misiones',
+                        label: 'Misiones Operativas',
+                        desc: 'Objetivos activos y NØBYTE',
+                        icon: Target,
+                      },
+                      {
+                        path: '/recompensas',
+                        label: 'Recompensas & Rangos',
+                        desc: 'Niveles y progresión NØXP',
+                        icon: Target,
+                      },
+                      {
+                        path: '/eventos',
+                        label: 'Eventos Activos',
+                        desc: 'Multiplicadores del ecosistema',
+                        icon: Target,
+                      },
+                    ].map((item) => {
+                      const Icon = item.icon;
+                      const active = currentPath === item.path;
+                      return (
+                        <button
+                          key={item.path}
+                          type="button"
+                          onClick={() => navigate(item.path)}
+                          className={`w-full flex items-start gap-2.5 p-2.5 rounded-lg text-left border transition-colors ${
+                            active
+                              ? 'bg-[#181818] text-white border-[#4A4A4A]'
+                              : 'bg-[#070707] text-[#D4D4D4] border-[#1A1A1A] hover:border-[#363636] hover:bg-[#111111] hover:text-white'
+                          }`}
+                        >
+                          <Icon className="w-4 h-4 mt-0.5 shrink-0 text-[#A3A3A3]" />
+                          <div className="min-w-0">
+                            <div className="text-xs font-medium leading-tight">
+                              {item.label}
+                            </div>
+                            <div className="text-[11px] text-[#737373] truncate mt-0.5">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Group 4: Cuenta & Plataforma */}
+                <div
+                  className={`nt-menu-col space-y-2.5 ${
+                    menuGroupFilter !== 'all' && menuGroupFilter !== 'cuenta'
+                      ? 'hidden lg:block'
+                      : ''
+                  }`}
+                  style={{ '--col-delay': '140ms' } as React.CSSProperties}
+                >
+                  <div className="nt-mono text-[10px] text-[#737373] uppercase tracking-wider px-1">
+                    04 // Cuenta & Plataforma
+                  </div>
+                  <div className="space-y-1.5">
+                    {[
+                      {
+                        path: '/perfil',
+                        label: 'Perfil de Operador',
+                        desc: 'Credenciales y métodos activos',
+                        icon: User,
+                      },
+                      {
+                        path: '/nosotros',
+                        label: 'Sobre NØTRACE',
+                        desc: 'Manifiesto y arquitectura 3.0',
+                        icon: Shield,
+                      },
+                      {
+                        path: '/ayuda',
+                        label: 'Centro de Ayuda',
+                        desc: 'Guía del sistema y preguntas',
+                        icon: HelpCircle,
+                      },
+                      {
+                        path: '/admin',
+                        label: 'Consola Admin',
+                        desc: 'Estado global de la plataforma',
+                        icon: Shield,
+                      },
+                    ].map((item) => {
+                      const Icon = item.icon;
+                      const active = currentPath === item.path;
+                      return (
+                        <button
+                          key={item.path}
+                          type="button"
+                          onClick={() => navigate(item.path)}
+                          className={`w-full flex items-start gap-2.5 p-2.5 rounded-lg text-left border transition-colors ${
+                            active
+                              ? 'bg-[#181818] text-white border-[#4A4A4A]'
+                              : 'bg-[#070707] text-[#D4D4D4] border-[#1A1A1A] hover:border-[#363636] hover:bg-[#111111] hover:text-white'
+                          }`}
+                        >
+                          <Icon className="w-4 h-4 mt-0.5 shrink-0 text-[#A3A3A3]" />
+                          <div className="min-w-0">
+                            <div className="text-xs font-medium leading-tight">
+                              {item.label}
+                            </div>
+                            <div className="text-[11px] text-[#737373] truncate mt-0.5">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+
+                    <div className="pt-2 grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => navigate('/login')}
+                        className="nt-btn nt-btn--sm text-xs justify-center"
+                      >
+                        Acceso / Login
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => navigate('/registro')}
+                        className="nt-btn nt-btn--sm nt-btn--primary text-xs justify-center"
+                      >
+                        Registro
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+        </div>
 
         {/* Active Page View */}
         <main id="main-content" className="min-h-[70vh]">

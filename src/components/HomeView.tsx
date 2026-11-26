@@ -169,7 +169,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 01. HERO PRINCIPAL */}
       <section className="nt-hero" id="inicio">
         <div className="nt-hero-copy">
-          <div className="nt-boot-stage-1 flex items-center gap-2 text-xs font-mono text-[#A3A3A3] tracking-wider uppercase">
+          <div className="nt-boot-stage-1 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-[#A3A3A3] tracking-wider uppercase">
             <span>NØTRACE 3.0</span>
             <span aria-hidden="true">·</span>
             <span>ECOSISTEMA DE CIBERSEGURIDAD</span>
@@ -294,7 +294,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 key={method.id}
                 onMouseEnter={() => setHoveredMethodId(method.id)}
                 onMouseLeave={() => setHoveredMethodId(null)}
-                className="snap-start shrink-0 w-[320px] sm:w-[356px] rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] hover:border-[#525252] transition-colors p-4 flex flex-col justify-between"
+                className="snap-start shrink-0 w-[84vw] max-w-[330px] sm:w-[356px] sm:max-w-none rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] hover:border-[#525252] transition-colors p-4 flex flex-col justify-between"
               >
                 <div>
                   {/* Animated Technical Cover */}
