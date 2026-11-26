@@ -595,6 +595,46 @@ export default function App() {
           </div>
         </header>
 
+        {/* Mobile & Tablet Quick Navigation Strip (1-tap navigation on <1024px) */}
+        <nav
+          aria-label="Acceso rápido móvil"
+          className="lg:hidden flex items-center gap-1.5 overflow-x-auto py-2 border-b border-[#171717] -mx-1 px-1"
+        >
+          {[
+            { path: '/', label: 'Inicio', icon: Compass },
+            { path: '/metodos', label: 'Métodos', icon: BookOpen },
+            { path: '/herramientas', label: 'Toolkit', icon: Boxes },
+            { path: '/herramientas/vpn-inspector', label: 'VPN Map', icon: Shield },
+            { path: '/campus', label: 'Campus', icon: GraduationCap },
+            { path: '/billetera', label: 'Vault', icon: Wallet },
+            { path: '/misiones', label: 'Misiones', icon: CheckCircle2 },
+          ].map((item) => {
+            const Icon = item.icon;
+            const active =
+              item.path === '/herramientas/vpn-inspector'
+                ? currentPath === '/herramientas/vpn-inspector'
+                : item.path === '/herramientas'
+                  ? currentPath.startsWith('/herramientas') &&
+                    currentPath !== '/herramientas/vpn-inspector'
+                  : isNavActive(item.path);
+            return (
+              <button
+                key={item.path}
+                type="button"
+                onClick={() => navigate(item.path)}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 border transition-colors ${
+                  active
+                    ? 'bg-white text-black border-white'
+                    : 'bg-[#0A0A0A] text-[#A3A3A3] border-[#1F1F1F] hover:text-white'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5 shrink-0" />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
+
         {/* Superimposed Ecosystem Command Menu Overlay (Smooth Open & Close + Backdrop Blur) */}
         <div
           className={`nt-menu-overlay ${mobileMenuOpen ? 'is-open' : ''}`}
@@ -617,22 +657,30 @@ export default function App() {
             >
               {/* Top Status & Quick Actions Bar */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1E1E1E]">
-                <div className="flex flex-wrap items-center justify-between sm:justify-start gap-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span className="nt-mono text-[11px] text-[#A3A3A3] tracking-wider">
+                <div className="flex items-center justify-between sm:justify-start gap-2.5">
+                  <div className="flex flex-wrap items-center gap-2 min-w-0">
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse shrink-0" />
+                    <span className="nt-mono text-[11px] text-[#A3A3A3] tracking-wider truncate">
                       NØTRACE 3.0 // DIRECTORIO OPERATIVO
                     </span>
+                    <span className="text-[11px] px-2 py-0.5 rounded-md bg-[#141414] border border-[#2A2A2A] text-[#D4D4D4] truncate max-w-[190px] sm:max-w-none">
+                      {operator.isGuest
+                        ? 'Sesión: Invitado'
+                        : `${operator.alias} · ${operator.clearance}`}
+                    </span>
                   </div>
-                  <span className="text-[11px] px-2.5 py-1 rounded-md bg-[#141414] border border-[#2A2A2A] text-[#D4D4D4] truncate max-w-[220px] sm:max-w-none">
-                    {operator.isGuest
-                      ? 'Sesión: Invitado'
-                      : `${operator.alias} · ${operator.clearance}`}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="sm:hidden nt-btn nt-btn--sm nt-btn--ghost text-xs border border-[#262626] shrink-0"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                    <span>Cerrar</span>
+                  </button>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2">
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5">
                     <CurrencyBadge
                       currency="NOBYTE"
                       amount={byteBalance}
@@ -659,7 +707,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="nt-btn nt-btn--sm nt-btn--ghost text-xs border border-[#262626]"
+                      className="hidden sm:inline-flex nt-btn nt-btn--sm nt-btn--ghost text-xs border border-[#262626]"
                     >
                       <X className="w-3.5 h-3.5" />
                       <span>Cerrar</span>

@@ -463,7 +463,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
 
                     <div className="p-3 rounded-lg bg-[#000000] border border-[#2E2E2E] font-mono text-xs space-y-1">
                       <div className="text-[#737373]">Comando objetivo:</div>
-                      <div className="text-white">
+                      <div className="text-white break-all">
                         $ {selectedMethod.courseRef.lab.expectedCommand}
                       </div>
                     </div>
@@ -483,7 +483,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
                     </button>
 
                     {completedLabIds.includes(selectedMethod.id) && (
-                      <div className="p-3 rounded-lg bg-[#171717] border border-[#4ADE80]/40 text-xs text-[#4ADE80] flex items-center justify-between gap-2">
+                      <div className="p-3 rounded-lg bg-[#171717] border border-[#4ADE80]/40 text-xs text-[#4ADE80] flex flex-wrap items-center justify-between gap-2">
                         <div className="flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4 shrink-0" />
                           <span>Laboratorio superado</span>
@@ -499,11 +499,11 @@ export const CampusView: React.FC<CampusViewProps> = ({
                   </div>
                 </div>
 
-                <div className="lg:col-span-7 rounded-xl bg-[#000000] border border-[#2E2E2E] p-4 font-mono text-xs flex flex-col justify-between min-h-[280px]">
+                <div className="lg:col-span-7 rounded-xl bg-[#000000] border border-[#2E2E2E] p-4 font-mono text-xs flex flex-col justify-between min-h-[280px] min-w-0">
                   <div className="space-y-2.5 max-h-[220px] overflow-y-auto pr-2">
                     {cliHistory.map((item, i) => (
                       <div key={i} className="space-y-1">
-                        <div className="text-white">
+                        <div className="text-white break-all">
                           <span className="text-[#737373]">
                             operator@notrace-campus:~$
                           </span>{' '}
@@ -512,13 +512,13 @@ export const CampusView: React.FC<CampusViewProps> = ({
                         {item.output.map((line, j) => (
                           <div
                             key={j}
-                            className={
+                            className={`break-words ${
                               line.startsWith('[+]')
                                 ? 'text-[#4ADE80]'
                                 : line.startsWith('[!]')
                                 ? 'text-[#EAB308]'
                                 : 'text-[#A3A3A3]'
-                            }
+                            }`}
                           >
                             {line}
                           </div>
@@ -663,8 +663,8 @@ export const CampusView: React.FC<CampusViewProps> = ({
 
       {/* TAB 4: CERTIFICADOS */}
       {activeTab === 'certificados' && (
-        <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-4">
-          <div className="flex items-center justify-between">
+        <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4">
+          <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-mono text-[#737373] uppercase">
                 VERIFICACIÓN CURRICULAR (NO COMPRABLE)
@@ -673,7 +673,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
                 Certificados de finalización de Métodos
               </h2>
             </div>
-            <Award className="w-5 h-5 text-white" />
+            <Award className="w-5 h-5 text-white shrink-0" />
           </div>
 
           <p className="text-xs text-[#A3A3A3] max-w-2xl leading-relaxed">
@@ -689,7 +689,7 @@ export const CampusView: React.FC<CampusViewProps> = ({
               return (
                 <div
                   key={m.id}
-                  className="p-4 rounded-xl bg-[#121212] border border-[#2E2E2E] flex items-center justify-between gap-4"
+                  className="p-4 rounded-xl bg-[#121212] border border-[#2E2E2E] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4"
                 >
                   <div className="space-y-1">
                     <div className="text-xs font-semibold text-white">

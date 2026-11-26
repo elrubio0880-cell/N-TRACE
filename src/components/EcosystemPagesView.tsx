@@ -320,7 +320,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
             <h1 className="text-3xl font-bold text-white tracking-tight">
               {operator.alias}
             </h1>
-            <p className="text-xs text-[#A3A3A3] nt-mono">
+            <p className="text-xs text-[#A3A3A3] nt-mono break-words">
               {operator.email} · {operator.role} · {operator.isGuest ? 'Sesión de Invitado' : 'Sesión Autenticada'}
             </p>
           </div>
@@ -330,7 +330,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('/login')}
-                className="nt-btn nt-btn--primary text-xs"
+                className="nt-btn nt-btn--primary text-xs w-full sm:w-auto justify-center"
               >
                 <LogIn className="w-3.5 h-3.5" />
                 <span>Iniciar sesión</span>
@@ -347,7 +347,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
                     isGuest: true,
                   })
                 }
-                className="nt-btn text-xs"
+                className="nt-btn text-xs w-full sm:w-auto justify-center"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span>Cambiar a vista Invitado</span>
@@ -359,8 +359,8 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left column: Rank & Balances */}
           <div className="lg:col-span-7 space-y-6">
-            <article className="p-6 rounded-xl bg-[#0A0A0A] border border-[#242424] space-y-5">
-              <div className="flex items-center justify-between">
+            <article className="p-4 sm:p-6 rounded-xl bg-[#0A0A0A] border border-[#242424] space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <RankInsignia rankNumber={currentRank.id} size={36} />
                   <div>
@@ -397,25 +397,25 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2 pt-2">
                 <button
                   type="button"
                   onClick={() => onNavigate('/campus')}
-                  className="nt-btn nt-btn--primary text-xs"
+                  className="nt-btn nt-btn--primary text-xs justify-center"
                 >
                   Ir a Mis Métodos
                 </button>
                 <button
                   type="button"
                   onClick={() => onNavigate('/billetera')}
-                  className="nt-btn text-xs"
+                  className="nt-btn text-xs justify-center"
                 >
                   Abrir NØTRACE Vault
                 </button>
                 <button
                   type="button"
                   onClick={() => onNavigate('/misiones')}
-                  className="nt-btn nt-btn--ghost text-xs"
+                  className="nt-btn nt-btn--ghost text-xs justify-center"
                 >
                   Ver Misiones y Rangos
                 </button>
@@ -425,7 +425,7 @@ export const EcosystemPagesView: React.FC<EcosystemPagesViewProps> = ({
 
           {/* Right column: ASCII Engine & Accessibility Preferences */}
           <div className="lg:col-span-5 space-y-6">
-            <article className="p-6 rounded-xl bg-[#0A0A0A] border border-[#242424] space-y-5">
+            <article className="p-4 sm:p-6 rounded-xl bg-[#0A0A0A] border border-[#242424] space-y-5">
               <div className="flex items-center gap-2 pb-3 border-b border-[#1E1E1E]">
                 <Sliders className="w-4 h-4 text-[#A3A3A3]" />
                 <h2 className="text-sm font-semibold text-white">

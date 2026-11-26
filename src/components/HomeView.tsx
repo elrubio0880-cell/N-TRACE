@@ -246,8 +246,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1.5 mr-2">
+          <div className="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-2">
+            <div className="flex items-center gap-1.5 mr-1 sm:mr-2 shrink-0">
               <button
                 type="button"
                 onClick={() => scrollCarousel('left')}
@@ -269,10 +269,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('/metodos')}
-              className="nt-btn text-xs"
+              className="nt-btn text-xs flex-1 sm:flex-initial justify-center"
             >
               <span>Ver todos los métodos</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </button>
           </div>
         </div>
@@ -328,7 +328,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 <div className="mt-5 pt-3.5 border-t border-[#1F1F1F] space-y-3">
                   {/* Difficulty, Modules & Duration */}
-                  <div className="flex items-center justify-between text-xs text-[#737373]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#737373]">
                     <span>Nivel: {method.level}</span>
                     <span className="font-mono tabular-nums">
                       {method.modulesCount} módulos · {method.duration}
@@ -336,7 +336,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </div>
 
                   {/* Price & Completion Reward */}
-                  <div className="flex items-center justify-between pt-1">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
                     <div>
                       {method.isFree ? (
                         <span className="font-mono text-sm font-semibold text-white">
@@ -438,7 +438,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-3.5 border-t border-[#1F1F1F] flex items-center justify-between gap-3">
+                <div className="pt-3.5 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-2.5">
                   <span className="text-xs font-mono text-[#A3A3A3]">
                     {isAvailable ? 'Disponible' : 'Próximamente'}
                     {' · '}
@@ -620,7 +620,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </p>
                 </div>
 
-                <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+                <div className="w-full sm:w-auto pt-2.5 sm:pt-0 border-t sm:border-t-0 border-[#1A1A1A] flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
                   <CurrencyAmount
                     currency={mission.rewardCurrency}
                     amount={mission.rewardAmount}
@@ -640,13 +640,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* 7 Academic Progression Ranks Summary */}
-          <div className="lg:col-span-5 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-5 flex flex-col justify-between gap-4">
+          <div className="lg:col-span-5 rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-5 flex flex-col justify-between gap-4">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-mono text-[#A3A3A3] uppercase tracking-wider">
                   JERARQUÍA ACADÉMICA (NO COMPRABLE)
                 </span>
-                <Award className="w-4 h-4 text-[#A3A3A3]" />
+                <Award className="w-4 h-4 text-[#A3A3A3] shrink-0" />
               </div>
 
               <div className="grid grid-cols-1 gap-2">
@@ -655,13 +655,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     key={r.id}
                     className="flex items-center justify-between gap-3 p-2 rounded-lg bg-[#121212] border border-[#1F1F1F]"
                   >
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <RankInsignia
                         rankNumber={r.id}
                         size={26}
                         active={r.id === 2}
                       />
-                      <div>
+                      <div className="min-w-0">
                         <div className="text-xs font-mono font-semibold text-white">
                           {r.code}
                         </div>

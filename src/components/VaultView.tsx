@@ -185,14 +185,14 @@ export const VaultView: React.FC<VaultViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="pt-4 border-t border-[#1F1F1F] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => onNavigate('/misiones')}
-                className="nt-btn nt-btn--sm text-xs"
+                className="nt-btn nt-btn--sm text-xs justify-center"
               >
-                <Gift className="w-3.5 h-3.5" />
+                <Gift className="w-3.5 h-3.5 shrink-0" />
                 <span>Ganar en Misiones</span>
               </button>
               <button
@@ -202,9 +202,9 @@ export const VaultView: React.FC<VaultViewProps> = ({
                   setSelectedPackageId('byte-pack');
                   setActiveTab('recargar');
                 }}
-                className="nt-btn nt-btn--sm text-xs"
+                className="nt-btn nt-btn--sm text-xs justify-center"
               >
-                <CirclePlus className="w-3.5 h-3.5" />
+                <CirclePlus className="w-3.5 h-3.5 shrink-0" />
                 <span>Ver paquetes NØBYTE</span>
               </button>
             </div>
@@ -244,8 +244,8 @@ export const VaultView: React.FC<VaultViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="pt-4 border-t border-[#1F1F1F] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => {
@@ -253,17 +253,17 @@ export const VaultView: React.FC<VaultViewProps> = ({
                   setSelectedPackageId('core-operator');
                   setActiveTab('recargar');
                 }}
-                className="nt-btn nt-btn--primary nt-btn--sm text-xs"
+                className="nt-btn nt-btn--primary nt-btn--sm text-xs justify-center"
               >
-                <CirclePlus className="w-3.5 h-3.5" />
+                <CirclePlus className="w-3.5 h-3.5 shrink-0" />
                 <span>Recargar NØCORE</span>
               </button>
               <button
                 type="button"
                 onClick={() => onNavigate('/metodos')}
-                className="nt-btn nt-btn--sm text-xs"
+                className="nt-btn nt-btn--sm text-xs justify-center"
               >
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5 shrink-0" />
                 <span>Explorar Métodos</span>
               </button>
             </div>
@@ -349,7 +349,7 @@ export const VaultView: React.FC<VaultViewProps> = ({
           </div>
 
           {/* Conceptual Economic Matrix Table */}
-          <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-4">
+          <section className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-4">
             <div>
               <div className="text-xs font-mono text-[#737373] uppercase">
                 MODELO ECONÓMICO CONCEPTUAL
@@ -399,7 +399,7 @@ export const VaultView: React.FC<VaultViewProps> = ({
       {/* TAB 2: RECHARGE CENTER (/billetera/recargar) */}
       {activeTab === 'recargar' && (
         <section className="space-y-6" aria-label="Centro de Recargas NØTRACE VAULT">
-          <div className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-6 space-y-6">
+          <div className="rounded-xl bg-[#0A0A0A] border border-[#2E2E2E] p-4 sm:p-6 space-y-6">
             {/* Step 1: Select Currency */}
             <div className="space-y-3">
               <div className="text-xs font-mono text-[#737373] uppercase">
