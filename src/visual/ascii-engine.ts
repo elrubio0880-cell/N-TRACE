@@ -5,7 +5,9 @@
  * wavefront crest illumination, and glyph locking) and zero per-frame string allocations.
  */
 
-export const DEFAULT_ASCII_SOURCE = '/assets/aistudio/hacker-luma_ac410dd3.png';
+import { HACKER_LUMA_DATA_URI } from './hacker-luma-data';
+
+export const DEFAULT_ASCII_SOURCE = HACKER_LUMA_DATA_URI;
 export const GLYPHS = ' .:+-=/0#%@';
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
@@ -152,6 +154,7 @@ export class AsciiEngine {
 
     this.image = new Image();
     this.image.decoding = 'async';
+    let retriedInline = false;
     this.ready = new Promise((resolve, reject) => {
       this.image.onload = () => {
         if (!this.disposed) {
@@ -160,9 +163,16 @@ export class AsciiEngine {
         }
         resolve(this);
       };
-      this.image.onerror = () => reject(new Error('No se pudo cargar la ilustración ASCII'));
+      this.image.onerror = () => {
+        if (!retriedInline && this.image.src !== HACKER_LUMA_DATA_URI) {
+          retriedInline = true;
+          this.image.src = HACKER_LUMA_DATA_URI;
+          return;
+        }
+        reject(new Error('No se pudo cargar la ilustración ASCII'));
+      };
     });
-    this.image.src = source;
+    this.image.src = source || HACKER_LUMA_DATA_URI;
   }
 
   public set(options: Partial<Omit<AsciiEngineOptions, 'source'>>): void {
